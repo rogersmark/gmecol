@@ -1,0 +1,1586 @@
+[
+    {
+        "pk": 1, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Amiga", 
+            "created": "2012-08-31T04:36:22.886Z", 
+            "remote_id": 1, 
+            "modified": "2012-08-31T04:36:22.886Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10069-a500_plus1_icon.jpg", 
+            "slug": "amiga"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Game Boy", 
+            "created": "2012-08-31T04:36:23.063Z", 
+            "remote_id": 3, 
+            "modified": "2012-08-31T04:36:23.063Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426210-logo_icon.jpg", 
+            "slug": "game-boy"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Game Boy Advance", 
+            "created": "2012-08-31T04:36:23.212Z", 
+            "remote_id": 4, 
+            "modified": "2012-08-31T04:36:23.212Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2121789-gba_icon.png", 
+            "slug": "game-boy-advance"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Game Gear", 
+            "created": "2012-08-31T04:36:23.385Z", 
+            "remote_id": 5, 
+            "modified": "2012-08-31T04:36:23.385Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426271-logo_icon.jpg", 
+            "slug": "game-gear"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Genesis", 
+            "created": "2012-08-31T04:36:23.543Z", 
+            "remote_id": 6, 
+            "modified": "2012-08-31T04:36:23.543Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10576-genesis_icon.jpg", 
+            "slug": "genesis"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Lynx", 
+            "created": "2012-08-31T04:36:23.778Z", 
+            "remote_id": 7, 
+            "modified": "2012-08-31T04:36:23.778Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10608-lynx2_icon.jpg", 
+            "slug": "lynx"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sega Master System", 
+            "created": "2012-08-31T04:36:23.929Z", 
+            "remote_id": 8, 
+            "modified": "2012-08-31T04:36:23.929Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176128-sega_master_system__6__icon.jpg", 
+            "slug": "sega-master-system"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "SNES", 
+            "created": "2012-08-31T04:36:24.096Z", 
+            "remote_id": 9, 
+            "modified": "2012-08-31T04:36:24.096Z", 
+            "image_url": "http://media.giantbomb.com/uploads/8/81966/2287891-snes_sfc_icon.jpg", 
+            "slug": "snes"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Amstrad CPC", 
+            "created": "2012-08-31T04:36:24.271Z", 
+            "remote_id": 11, 
+            "modified": "2012-08-31T04:36:24.271Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10073-Amstrad_CPC464_icon.jpg", 
+            "slug": "amstrad-cpc"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Apple II", 
+            "created": "2012-08-31T04:36:24.425Z", 
+            "remote_id": 12, 
+            "modified": "2012-08-31T04:36:24.425Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10074-apple_ii_large_icon.jpg", 
+            "slug": "apple-ii"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Atari ST", 
+            "created": "2012-08-31T04:36:24.577Z", 
+            "remote_id": 13, 
+            "modified": "2012-08-31T04:36:24.577Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/5258/220119-atari_1040stf_icon.jpg", 
+            "slug": "atari-st"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Commodore 64", 
+            "created": "2012-08-31T04:36:24.797Z", 
+            "remote_id": 14, 
+            "modified": "2012-08-31T04:36:24.798Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10289-c64_icon.jpg", 
+            "slug": "commodore-64"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "MSX", 
+            "created": "2012-08-31T04:36:24.948Z", 
+            "remote_id": 15, 
+            "modified": "2012-08-31T04:36:24.948Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176106-msx_philips_vg8020_icon.jpg", 
+            "slug": "msx"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "ZX Spectrum", 
+            "created": "2012-08-31T04:36:25.136Z", 
+            "remote_id": 16, 
+            "modified": "2012-08-31T04:36:25.136Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176104-zxspectrum48k_icon.jpg", 
+            "slug": "zx-spectrum"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Mac", 
+            "created": "2012-08-31T04:36:25.374Z", 
+            "remote_id": 17, 
+            "modified": "2012-08-31T04:36:25.374Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/5150/1500874-overview_gallery3_20090828_icon.jpg", 
+            "slug": "mac"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PSP", 
+            "created": "2012-08-31T04:36:25.608Z", 
+            "remote_id": 18, 
+            "modified": "2012-08-31T04:36:25.608Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2122792-pspmain_icon.png", 
+            "slug": "psp"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation 2", 
+            "created": "2012-08-31T04:36:25.793Z", 
+            "remote_id": 19, 
+            "modified": "2012-08-31T04:36:25.793Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/9594/438868-ps2_full_large_icon.jpg", 
+            "slug": "playstation-2"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Xbox 360", 
+            "created": "2012-08-31T04:36:25.943Z", 
+            "remote_id": 20, 
+            "modified": "2012-08-31T04:36:25.943Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/8271/1865605-xbox_360_icon.png", 
+            "slug": "xbox-360"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "NES", 
+            "created": "2012-08-31T04:36:26.118Z", 
+            "remote_id": 21, 
+            "modified": "2012-08-31T04:36:26.118Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426310-logo_icon.jpg", 
+            "slug": "nes"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation", 
+            "created": "2012-08-31T04:36:26.295Z", 
+            "remote_id": 22, 
+            "modified": "2012-08-31T04:36:26.295Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426393-logo_icon.jpg", 
+            "slug": "playstation"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "GameCube", 
+            "created": "2012-08-31T04:36:26.504Z", 
+            "remote_id": 23, 
+            "modified": "2012-08-31T04:36:26.504Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426256-logo_icon.jpg", 
+            "slug": "gamecube"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Atari 8-bit", 
+            "created": "2012-08-31T04:36:26.695Z", 
+            "remote_id": 24, 
+            "modified": "2012-08-31T04:36:26.695Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10170-Atari-800_icon.jpg", 
+            "slug": "atari-8-bit"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Neo Geo", 
+            "created": "2012-08-31T04:36:26.863Z", 
+            "remote_id": 25, 
+            "modified": "2012-08-31T04:36:26.863Z", 
+            "image_url": "http://media.giantbomb.com/uploads/1/13356/613871-neogeo1_icon.jpg", 
+            "slug": "neo-geo"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "3DO", 
+            "created": "2012-08-31T04:36:27.007Z", 
+            "remote_id": 26, 
+            "modified": "2012-08-31T04:36:27.007Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10067-goldstar 3do_icon.jpg", 
+            "slug": "3do"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "CD-i", 
+            "created": "2012-08-31T04:36:27.154Z", 
+            "remote_id": 27, 
+            "modified": "2012-08-31T04:36:27.154Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10173-cd-i_icon.jpg", 
+            "slug": "cd-i"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Jaguar", 
+            "created": "2012-08-31T04:36:27.311Z", 
+            "remote_id": 28, 
+            "modified": "2012-08-31T04:36:27.311Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10845-atarijaguar_icon.jpg", 
+            "slug": "jaguar"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sega CD", 
+            "created": "2012-08-31T04:36:27.462Z", 
+            "remote_id": 29, 
+            "modified": "2012-08-31T04:36:27.462Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176099-20070529172508_sega_mega_cd_ii__pal__icon.jpg", 
+            "slug": "sega-cd"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "VIC-20", 
+            "created": "2012-08-31T04:36:27.639Z", 
+            "remote_id": 30, 
+            "modified": "2012-08-31T04:36:27.639Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/176108-vic_icon.jpg", 
+            "slug": "vic-20"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sega 32X", 
+            "created": "2012-08-31T04:36:27.854Z", 
+            "remote_id": 31, 
+            "modified": "2012-08-31T04:36:27.854Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176101-32x_usa_box_icon.jpg", 
+            "slug": "sega-32x"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Xbox", 
+            "created": "2012-08-31T04:36:28.105Z", 
+            "remote_id": 32, 
+            "modified": "2012-08-31T04:36:28.105Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10615-xbox_icon.jpg", 
+            "slug": "xbox"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "N-Gage", 
+            "created": "2012-08-31T04:36:28.341Z", 
+            "remote_id": 34, 
+            "modified": "2012-08-31T04:36:28.341Z", 
+            "image_url": "http://media.giantbomb.com/uploads/1/14906/702653-ngageqd_icon.jpg", 
+            "slug": "n-gage"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation 3", 
+            "created": "2012-08-31T04:36:28.560Z", 
+            "remote_id": 35, 
+            "modified": "2012-08-31T04:36:28.560Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/9794/1407854-ps3_icon.jpg", 
+            "slug": "playstation-3"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Wii", 
+            "created": "2012-08-31T04:36:28.780Z", 
+            "remote_id": 36, 
+            "modified": "2012-08-31T04:36:28.781Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/498/195278-nintendo_wii_controllers_in_super_hi_res_20060509002211184_icon.jpg", 
+            "slug": "wii"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Dreamcast", 
+            "created": "2012-08-31T04:36:29.872Z", 
+            "remote_id": 37, 
+            "modified": "2012-08-31T04:36:29.872Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426199-logo_icon.jpg", 
+            "slug": "dreamcast"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Apple IIgs", 
+            "created": "2012-08-31T04:36:30.031Z", 
+            "remote_id": 38, 
+            "modified": "2012-08-31T04:36:30.031Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10075-appleiigs_icon.jpg", 
+            "slug": "apple-iigs"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Amiga CD32", 
+            "created": "2012-08-31T04:36:30.204Z", 
+            "remote_id": 39, 
+            "modified": "2012-08-31T04:36:30.204Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10070-cd32_icon.jpg", 
+            "slug": "amiga-cd32"
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Atari 2600", 
+            "created": "2012-08-31T04:36:30.376Z", 
+            "remote_id": 40, 
+            "modified": "2012-08-31T04:36:30.376Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10066-atari2600_icon.jpg", 
+            "slug": "atari-2600"
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Saturn", 
+            "created": "2012-08-31T04:36:30.635Z", 
+            "remote_id": 42, 
+            "modified": "2012-08-31T04:36:30.635Z", 
+            "image_url": "http://media.giantbomb.com/uploads/6/60937/1142466-sega_saturn_splash_screen_icon.jpg", 
+            "slug": "saturn"
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Nintendo 64", 
+            "created": "2012-08-31T04:36:30.787Z", 
+            "remote_id": 43, 
+            "modified": "2012-08-31T04:36:30.787Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426281-logo_icon.jpg", 
+            "slug": "nintendo-64"
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "ColecoVision", 
+            "created": "2012-08-31T04:36:30.942Z", 
+            "remote_id": 47, 
+            "modified": "2012-08-31T04:36:30.942Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/1270971-colecovision_icon.jpg", 
+            "slug": "colecovision"
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "TI-99/4A", 
+            "created": "2012-08-31T04:36:31.142Z", 
+            "remote_id": 48, 
+            "modified": "2012-08-31T04:36:31.142Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1427020-logo_icon.jpg", 
+            "slug": "ti-994a"
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Intellivision", 
+            "created": "2012-08-31T04:36:31.460Z", 
+            "remote_id": 51, 
+            "modified": "2012-08-31T04:36:31.460Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/24/176540-intellivision_small_icon.jpg", 
+            "slug": "intellivision"
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Nintendo DS", 
+            "created": "2012-08-31T04:36:31.700Z", 
+            "remote_id": 52, 
+            "modified": "2012-08-31T04:36:31.700Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2122822-ds_icon.png", 
+            "slug": "nintendo-ds"
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "TurboGrafx CD", 
+            "created": "2012-08-31T04:36:31.849Z", 
+            "remote_id": 53, 
+            "modified": "2012-08-31T04:36:31.849Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176113-turbografx_icon.jpg", 
+            "slug": "turbografx-cd"
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "WonderSwan Color", 
+            "created": "2012-08-31T04:36:32.035Z", 
+            "remote_id": 54, 
+            "modified": "2012-08-31T04:36:32.035Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176139-wswpeablu_icon.jpg", 
+            "slug": "wonderswan-color"
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "TurboGrafx-16", 
+            "created": "2012-08-31T04:36:32.234Z", 
+            "remote_id": 55, 
+            "modified": "2012-08-31T04:36:32.234Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176127-turbografx_16_icon.jpg", 
+            "slug": "turbografx-16"
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Game Boy Color", 
+            "created": "2012-08-31T04:36:32.379Z", 
+            "remote_id": 57, 
+            "modified": "2012-08-31T04:36:32.379Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426240-logo_icon.jpg", 
+            "slug": "game-boy-color"
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Commodore 128", 
+            "created": "2012-08-31T04:36:32.534Z", 
+            "remote_id": 58, 
+            "modified": "2012-08-31T04:36:32.534Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10287-c128_icon.png", 
+            "slug": "commodore-128"
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Neo Geo CD", 
+            "created": "2012-08-31T04:36:32.688Z", 
+            "remote_id": 59, 
+            "modified": "2012-08-31T04:36:32.688Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176112-neogeocd_icon.jpg", 
+            "slug": "neo-geo-cd"
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Odyssey 2", 
+            "created": "2012-08-31T04:36:32.863Z", 
+            "remote_id": 60, 
+            "modified": "2012-08-31T04:36:32.863Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176130-o2_hard_icon.jpg", 
+            "slug": "odyssey-2"
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Dragon 32/64", 
+            "created": "2012-08-31T04:36:33.102Z", 
+            "remote_id": 61, 
+            "modified": "2012-08-31T04:36:33.102Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10321-dragon64_icon.gif", 
+            "slug": "dragon-3264"
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Commodore PET/CBM", 
+            "created": "2012-08-31T04:36:33.271Z", 
+            "remote_id": 62, 
+            "modified": "2012-08-31T04:36:33.271Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10320-Commodore_PET4032_icon.jpg", 
+            "slug": "commodore-petcbm"
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "TRS-80", 
+            "created": "2012-08-31T04:36:33.429Z", 
+            "remote_id": 63, 
+            "modified": "2012-08-31T04:36:33.429Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176129-trs80_2_icon.jpg", 
+            "slug": "trs-80"
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Zodiac", 
+            "created": "2012-08-31T04:36:33.584Z", 
+            "remote_id": 64, 
+            "modified": "2012-08-31T04:36:33.584Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10460-zodiac_icon.jpg", 
+            "slug": "zodiac"
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "WonderSwan", 
+            "created": "2012-08-31T04:36:33.816Z", 
+            "remote_id": 65, 
+            "modified": "2012-08-31T04:36:33.816Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176117-wonderswan_icon.jpg", 
+            "slug": "wonderswan"
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Channel F", 
+            "created": "2012-08-31T04:36:34.030Z", 
+            "remote_id": 66, 
+            "modified": "2012-08-31T04:36:34.030Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10174-fairchild channel f_icon.jpg", 
+            "slug": "channel-f"
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Atari 5200", 
+            "created": "2012-08-31T04:36:34.250Z", 
+            "remote_id": 67, 
+            "modified": "2012-08-31T04:36:34.250Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10083-5200_icon.jpg", 
+            "slug": "atari-5200"
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "TRS-80 CoCo", 
+            "created": "2012-08-31T04:36:34.424Z", 
+            "remote_id": 68, 
+            "modified": "2012-08-31T04:36:34.424Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/176059-320px_trs_80_color_computer_1_icon.jpg", 
+            "slug": "trs-80-coco"
+        }
+    }, 
+    {
+        "pk": 59, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Atari 7800", 
+            "created": "2012-08-31T04:36:34.640Z", 
+            "remote_id": 70, 
+            "modified": "2012-08-31T04:36:34.640Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10088-7800_icon.gif", 
+            "slug": "atari-7800"
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "iPod", 
+            "created": "2012-08-31T04:36:34.912Z", 
+            "remote_id": 72, 
+            "modified": "2012-08-31T04:36:34.912Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10886-ipod_icon.png", 
+            "slug": "ipod"
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Odyssey", 
+            "created": "2012-08-31T04:36:35.070Z", 
+            "remote_id": 74, 
+            "modified": "2012-08-31T04:36:35.070Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176132-slide1_icon.jpg", 
+            "slug": "odyssey"
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PC-FX", 
+            "created": "2012-08-31T04:36:35.248Z", 
+            "remote_id": 75, 
+            "modified": "2012-08-31T04:36:35.249Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176114-pc_fx_icon.jpg", 
+            "slug": "pc-fx"
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Vectrex", 
+            "created": "2012-08-31T04:36:35.452Z", 
+            "remote_id": 76, 
+            "modified": "2012-08-31T04:36:35.452Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/176109-vectrex_icon.jpg", 
+            "slug": "vectrex"
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Game.Com", 
+            "created": "2012-08-31T04:36:35.636Z", 
+            "remote_id": 77, 
+            "modified": "2012-08-31T04:36:35.637Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10352-gamecom_icon.jpg", 
+            "slug": "gamecom"
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Gizmondo", 
+            "created": "2012-08-31T04:36:35.826Z", 
+            "remote_id": 78, 
+            "modified": "2012-08-31T04:36:35.826Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10602-gizmondo_icon.jpg", 
+            "slug": "gizmondo"
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Virtual Boy", 
+            "created": "2012-08-31T04:36:36.024Z", 
+            "remote_id": 79, 
+            "modified": "2012-08-31T04:36:36.024Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/25/176098-virtual_boy_sistem_icon.jpg", 
+            "slug": "virtual-boy"
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Neo Geo Pocket", 
+            "created": "2012-08-31T04:36:36.215Z", 
+            "remote_id": 80, 
+            "modified": "2012-08-31T04:36:36.215Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2122615-neo_geo_pocket_ligts_on_icon.jpg", 
+            "slug": "neo-geo-pocket"
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Neo Geo Pocket Color", 
+            "created": "2012-08-31T04:36:36.417Z", 
+            "remote_id": 81, 
+            "modified": "2012-08-31T04:36:36.417Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/1426322-logo_icon.jpg", 
+            "slug": "neo-geo-pocket-color"
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "V.Smile", 
+            "created": "2012-08-31T04:36:36.574Z", 
+            "remote_id": 82, 
+            "modified": "2012-08-31T04:36:36.574Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10324-vsmile_icon.jpg", 
+            "slug": "vsmile"
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Pinball", 
+            "created": "2012-08-31T04:36:36.738Z", 
+            "remote_id": 83, 
+            "modified": "2012-08-31T04:36:36.738Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3948/955933-6a00d83452989a69e2010536fbd197970b_800wi_icon.jpg", 
+            "slug": "pinball"
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Arcade", 
+            "created": "2012-08-31T04:36:36.903Z", 
+            "remote_id": 84, 
+            "modified": "2012-08-31T04:36:36.903Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/9565/401036-mame_arcade_essential_cabinet_icon.jpg", 
+            "slug": "arcade"
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "NUON", 
+            "created": "2012-08-31T04:36:37.056Z", 
+            "remote_id": 85, 
+            "modified": "2012-08-31T04:36:37.056Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/11422-nuon-logo_icon.jpg", 
+            "slug": "nuon"
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Xbox Live Marketplace", 
+            "created": "2012-08-31T04:36:37.212Z", 
+            "remote_id": 86, 
+            "modified": "2012-08-31T04:36:37.212Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/8271/1145530-xblmlogo_icon.png", 
+            "slug": "xbox-live-marketplace"
+        }
+    }, 
+    {
+        "pk": 74, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Wii Shop", 
+            "created": "2012-08-31T04:36:37.396Z", 
+            "remote_id": 87, 
+            "modified": "2012-08-31T04:36:37.396Z", 
+            "image_url": "http://media.giantbomb.com/uploads/8/81966/2287886-2287885-wii_shop_channel_icon.jpg", 
+            "slug": "wii-shop"
+        }
+    }, 
+    {
+        "pk": 75, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation Network (PS3)", 
+            "created": "2012-08-31T04:36:37.562Z", 
+            "remote_id": 88, 
+            "modified": "2012-08-31T04:36:37.562Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2122559-psnps3_icon.png", 
+            "slug": "playstation-network-ps3"
+        }
+    }, 
+    {
+        "pk": 76, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Leapster", 
+            "created": "2012-08-31T04:36:37.728Z", 
+            "remote_id": 89, 
+            "modified": "2012-08-31T04:36:37.728Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10607-leapster_icon.jpg", 
+            "slug": "leapster"
+        }
+    }, 
+    {
+        "pk": 77, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Microvision", 
+            "created": "2012-08-31T04:36:37.894Z", 
+            "remote_id": 90, 
+            "modified": "2012-08-31T04:36:37.894Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10813-MicroVision_icon.jpg", 
+            "slug": "microvision"
+        }
+    }, 
+    {
+        "pk": 78, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Famicom Disk System", 
+            "created": "2012-08-31T04:36:38.051Z", 
+            "remote_id": 91, 
+            "modified": "2012-08-31T04:36:38.051Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/10341-fds_icon.jpg", 
+            "slug": "famicom-disk-system"
+        }
+    }, 
+    {
+        "pk": 79, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Pioneer LaserActive", 
+            "created": "2012-08-31T04:36:38.213Z", 
+            "remote_id": 92, 
+            "modified": "2012-08-31T04:36:38.213Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/176058-laserinteractive_icon.jpg", 
+            "slug": "pioneer-laseractive"
+        }
+    }, 
+    {
+        "pk": 80, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Adventure Vision", 
+            "created": "2012-08-31T04:36:38.828Z", 
+            "remote_id": 93, 
+            "modified": "2012-08-31T04:36:38.828Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/46/1248213-adventurevision_icon.jpg", 
+            "slug": "adventure-vision"
+        }
+    }, 
+    {
+        "pk": 81, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PC", 
+            "created": "2012-08-31T04:36:39.010Z", 
+            "remote_id": 94, 
+            "modified": "2012-08-31T04:36:39.010Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/11889-alienware_icon.jpg", 
+            "slug": "pc"
+        }
+    }, 
+    {
+        "pk": 82, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sharp X68000", 
+            "created": "2012-08-31T04:36:39.183Z", 
+            "remote_id": 95, 
+            "modified": "2012-08-31T04:36:39.183Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/176060-x68000xvihd8_icon.jpg", 
+            "slug": "sharp-x68000"
+        }
+    }, 
+    {
+        "pk": 83, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "iPhone", 
+            "created": "2012-08-31T04:36:39.374Z", 
+            "remote_id": 96, 
+            "modified": "2012-08-31T04:36:39.374Z", 
+            "image_url": "http://media.giantbomb.com/uploads/3/38377/1750597-apple_iphone_4_101_icon.jpg", 
+            "slug": "iphone"
+        }
+    }, 
+    {
+        "pk": 84, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Satellaview", 
+            "created": "2012-08-31T04:36:39.573Z", 
+            "remote_id": 98, 
+            "modified": "2012-08-31T04:36:39.573Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/429/177828-600px_satellaview_with_super_famicom_icon.jpg", 
+            "slug": "satellaview"
+        }
+    }, 
+    {
+        "pk": 85, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Arcadia 2001", 
+            "created": "2012-08-31T04:36:39.738Z", 
+            "remote_id": 99, 
+            "modified": "2012-08-31T04:36:39.738Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/46/187197-arcadia2001_icon.gif", 
+            "slug": "arcadia-2001"
+        }
+    }, 
+    {
+        "pk": 86, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Aquarius", 
+            "created": "2012-08-31T04:36:39.987Z", 
+            "remote_id": 100, 
+            "modified": "2012-08-31T04:36:39.987Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/46/187822-aquarius_icon.jpg", 
+            "slug": "aquarius"
+        }
+    }, 
+    {
+        "pk": 87, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Nintendo 64DD", 
+            "created": "2012-08-31T04:36:40.170Z", 
+            "remote_id": 101, 
+            "modified": "2012-08-31T04:36:40.170Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/46/189175-n64dd_icon.jpg", 
+            "slug": "nintendo-64dd"
+        }
+    }, 
+    {
+        "pk": 88, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Pippin", 
+            "created": "2012-08-31T04:36:40.347Z", 
+            "remote_id": 102, 
+            "modified": "2012-08-31T04:36:40.347Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/46/278609-blackconsole_icon.jpg", 
+            "slug": "pippin"
+        }
+    }, 
+    {
+        "pk": 89, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "R-Zone", 
+            "created": "2012-08-31T04:36:40.541Z", 
+            "remote_id": 103, 
+            "modified": "2012-08-31T04:36:40.541Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/611/204270-dscn0584_icon.jpg", 
+            "slug": "r-zone"
+        }
+    }, 
+    {
+        "pk": 90, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "HyperScan", 
+            "created": "2012-08-31T04:36:40.744Z", 
+            "remote_id": 104, 
+            "modified": "2012-08-31T04:36:40.744Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/2681/841197-hyperscan_icon.jpg", 
+            "slug": "hyperscan"
+        }
+    }, 
+    {
+        "pk": 91, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Game Wave", 
+            "created": "2012-08-31T04:36:40.920Z", 
+            "remote_id": 105, 
+            "modified": "2012-08-31T04:36:40.920Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/4647/842951-gw_withgames_cmyk_icon.jpg", 
+            "slug": "game-wave"
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "DSiWare", 
+            "created": "2012-08-31T04:36:41.286Z", 
+            "remote_id": 106, 
+            "modified": "2012-08-31T04:36:41.286Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/847036-dsiware_icon.jpg", 
+            "slug": "dsiware"
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "RDI Halcyon", 
+            "created": "2012-08-31T04:36:41.575Z", 
+            "remote_id": 107, 
+            "modified": "2012-08-31T04:36:41.575Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/874497-rdi_icon.jpg", 
+            "slug": "rdi-halcyon"
+        }
+    }, 
+    {
+        "pk": 94, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "FM Towns", 
+            "created": "2012-08-31T04:36:41.742Z", 
+            "remote_id": 108, 
+            "modified": "2012-08-31T04:36:41.742Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/5450/897563-fm_towns_1_icon.jpg", 
+            "slug": "fm-towns"
+        }
+    }, 
+    {
+        "pk": 95, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "NEC PC-8801", 
+            "created": "2012-08-31T04:36:41.944Z", 
+            "remote_id": 109, 
+            "modified": "2012-08-31T04:36:41.944Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/4647/961635-nec_pc8801_1_icon.jpg", 
+            "slug": "nec-pc-8801"
+        }
+    }, 
+    {
+        "pk": 96, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "BBC Micro", 
+            "created": "2012-08-31T04:36:42.112Z", 
+            "remote_id": 110, 
+            "modified": "2012-08-31T04:36:42.112Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/4527/1167653-800px_bbc_micro_icon.jpg", 
+            "slug": "bbc-micro"
+        }
+    }, 
+    {
+        "pk": 97, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PLATO", 
+            "created": "2012-08-31T04:36:42.307Z", 
+            "remote_id": 111, 
+            "modified": "2012-08-31T04:36:42.307Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/4647/1101577-240px_platovterm1981_icon.jpg", 
+            "slug": "plato"
+        }
+    }, 
+    {
+        "pk": 98, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "NEC PC-9801", 
+            "created": "2012-08-31T04:36:42.484Z", 
+            "remote_id": 112, 
+            "modified": "2012-08-31T04:36:42.484Z", 
+            "image_url": "http://media.giantbomb.com/uploads/5/59190/1129864-pc_9801_l_icon.jpg", 
+            "slug": "nec-pc-9801"
+        }
+    }, 
+    {
+        "pk": 99, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sharp X1", 
+            "created": "2012-08-31T04:36:42.682Z", 
+            "remote_id": 113, 
+            "modified": "2012-08-31T04:36:42.682Z", 
+            "image_url": "http://media.giantbomb.com/uploads/5/59190/1129861-sharpx1_icon.jpg", 
+            "slug": "sharp-x1"
+        }
+    }, 
+    {
+        "pk": 100, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "FM-7", 
+            "created": "2012-08-31T04:36:42.857Z", 
+            "remote_id": 114, 
+            "modified": "2012-08-31T04:36:42.857Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/1151387-fm7ad_icon.jpg", 
+            "slug": "fm-7"
+        }
+    }, 
+    {
+        "pk": 101, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "NEC PC-6001", 
+            "created": "2012-08-31T04:36:43.147Z", 
+            "remote_id": 115, 
+            "modified": "2012-08-31T04:36:43.147Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/3/1151382-250px_nec_pc_6001_icon.jpg", 
+            "slug": "nec-pc-6001"
+        }
+    }, 
+    {
+        "pk": 102, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation Network (PSP)", 
+            "created": "2012-08-31T04:36:43.320Z", 
+            "remote_id": 116, 
+            "modified": "2012-08-31T04:36:43.321Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2122556-psnpsp_icon.png", 
+            "slug": "playstation-network-psp"
+        }
+    }, 
+    {
+        "pk": 103, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Nintendo 3DS", 
+            "created": "2012-08-31T04:36:43.492Z", 
+            "remote_id": 117, 
+            "modified": "2012-08-31T04:36:43.493Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/5150/1686079-3dshw11911_icon.jpg", 
+            "slug": "nintendo-3ds"
+        }
+    }, 
+    {
+        "pk": 104, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sega Pico", 
+            "created": "2012-08-31T04:36:43.732Z", 
+            "remote_id": 118, 
+            "modified": "2012-08-31T04:36:43.732Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/7464/1761423-pico_icon.jpg", 
+            "slug": "sega-pico"
+        }
+    }, 
+    {
+        "pk": 105, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "SuperGrafx", 
+            "created": "2012-08-31T04:36:44.890Z", 
+            "remote_id": 119, 
+            "modified": "2012-08-31T04:36:44.890Z", 
+            "image_url": "http://media.giantbomb.com/uploads/3/30094/1317921-pcengine_supergrafx_icon.jpg", 
+            "slug": "supergrafx"
+        }
+    }, 
+    {
+        "pk": 106, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Bally Astrocade", 
+            "created": "2012-08-31T04:36:45.047Z", 
+            "remote_id": 120, 
+            "modified": "2012-08-31T04:36:45.047Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/4647/1322955-ballystm_icon.jpg", 
+            "slug": "bally-astrocade"
+        }
+    }, 
+    {
+        "pk": 107, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "iPad", 
+            "created": "2012-08-31T04:36:45.246Z", 
+            "remote_id": 121, 
+            "modified": "2012-08-31T04:36:45.246Z", 
+            "image_url": "http://media.giantbomb.com/uploads/8/88161/1325874-ipad_hero_20100127_icon.jpg", 
+            "slug": "ipad"
+        }
+    }, 
+    {
+        "pk": 108, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Zeebo", 
+            "created": "2012-08-31T04:36:45.452Z", 
+            "remote_id": 122, 
+            "modified": "2012-08-31T04:36:45.452Z", 
+            "image_url": "http://media.giantbomb.com/uploads/8/85935/1391294-zeebo_icon.jpg", 
+            "slug": "zeebo"
+        }
+    }, 
+    {
+        "pk": 109, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Android", 
+            "created": "2012-08-31T04:36:45.642Z", 
+            "remote_id": 123, 
+            "modified": "2012-08-31T04:36:45.642Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/1465136-android_robot_logo_icon.jpg", 
+            "slug": "android"
+        }
+    }, 
+    {
+        "pk": 110, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Windows Phone", 
+            "created": "2012-08-31T04:36:46.345Z", 
+            "remote_id": 124, 
+            "modified": "2012-08-31T04:36:46.345Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/8271/2244477-windowsphone8startscreen1_page_icon.jpg", 
+            "slug": "windows-phone"
+        }
+    }, 
+    {
+        "pk": 111, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Acorn Archimedes", 
+            "created": "2012-08-31T04:36:46.538Z", 
+            "remote_id": 125, 
+            "modified": "2012-08-31T04:36:46.538Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/1529461-acorna30002_icon.jpg", 
+            "slug": "acorn-archimedes"
+        }
+    }, 
+    {
+        "pk": 112, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Casio Loopy", 
+            "created": "2012-08-31T04:36:46.726Z", 
+            "remote_id": 126, 
+            "modified": "2012-08-31T04:36:46.726Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/4647/1643279-casioloopy_icon.jpg", 
+            "slug": "casio-loopy"
+        }
+    }, 
+    {
+        "pk": 113, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Bandai Playdia", 
+            "created": "2012-08-31T04:36:46.917Z", 
+            "remote_id": 127, 
+            "modified": "2012-08-31T04:36:46.917Z", 
+            "image_url": "http://media.giantbomb.com/uploads/3/30161/1661326-playdia_icon.jpg", 
+            "slug": "bandai-playdia"
+        }
+    }, 
+    {
+        "pk": 114, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sharp MZ", 
+            "created": "2012-08-31T04:36:47.080Z", 
+            "remote_id": 128, 
+            "modified": "2012-08-31T04:36:47.080Z", 
+            "image_url": "http://media.giantbomb.com/uploads/5/59190/1674132-mz700_icon.png", 
+            "slug": "sharp-mz"
+        }
+    }, 
+    {
+        "pk": 115, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation Vita", 
+            "created": "2012-08-31T04:36:47.234Z", 
+            "remote_id": 129, 
+            "modified": "2012-08-31T04:36:47.234Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2122519-vita_icon.png", 
+            "slug": "playstation-vita"
+        }
+    }, 
+    {
+        "pk": 116, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "RCA Studio II", 
+            "created": "2012-08-31T04:36:47.415Z", 
+            "remote_id": 131, 
+            "modified": "2012-08-31T04:36:47.415Z", 
+            "image_url": "http://media.giantbomb.com/uploads/12/126045/1745663-giant_bomb_sub_3_icon.jpg", 
+            "slug": "rca-studio-ii"
+        }
+    }, 
+    {
+        "pk": 117, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "XaviXPORT", 
+            "created": "2012-08-31T04:36:47.704Z", 
+            "remote_id": 132, 
+            "modified": "2012-08-31T04:36:47.704Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/7464/1745857-port_page_icon.jpg", 
+            "slug": "xavixport"
+        }
+    }, 
+    {
+        "pk": 118, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "GamePark 32", 
+            "created": "2012-08-31T04:36:47.946Z", 
+            "remote_id": 133, 
+            "modified": "2012-08-31T04:36:47.946Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/7464/1749578-gp3201_icon.jpg", 
+            "slug": "gamepark-32"
+        }
+    }, 
+    {
+        "pk": 119, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Pok\u00e9mon mini", 
+            "created": "2012-08-31T04:36:48.191Z", 
+            "remote_id": 134, 
+            "modified": "2012-08-31T04:36:48.191Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/1749907-pokemonmini_icon.jpg", 
+            "slug": "pokemon-mini"
+        }
+    }, 
+    {
+        "pk": 120, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Epoch Cassette Vision", 
+            "created": "2012-08-31T04:36:48.375Z", 
+            "remote_id": 135, 
+            "modified": "2012-08-31T04:36:48.375Z", 
+            "image_url": "http://media.giantbomb.com/uploads/12/124856/1749867-giant_bomb_sub_icon.jpg", 
+            "slug": "epoch-cassette-vision"
+        }
+    }, 
+    {
+        "pk": 121, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Super Cassette Vision", 
+            "created": "2012-08-31T04:36:48.566Z", 
+            "remote_id": 136, 
+            "modified": "2012-08-31T04:36:48.566Z", 
+            "image_url": "http://media.giantbomb.com/uploads/12/126045/1755684-images_icon.jpeg", 
+            "slug": "super-cassette-vision"
+        }
+    }, 
+    {
+        "pk": 122, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Mega Duck", 
+            "created": "2012-08-31T04:36:48.722Z", 
+            "remote_id": 137, 
+            "modified": "2012-08-31T04:36:48.722Z", 
+            "image_url": "http://media.giantbomb.com/uploads/12/126045/1755677-8347458953222508_icon.jpg", 
+            "slug": "mega-duck"
+        }
+    }, 
+    {
+        "pk": 123, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "3DSWare", 
+            "created": "2012-08-31T04:36:48.965Z", 
+            "remote_id": 138, 
+            "modified": "2012-08-31T04:36:48.965Z", 
+            "image_url": "http://media.giantbomb.com/uploads/8/81966/2287882-2287881-eshop_logo_highres_icon.jpg", 
+            "slug": "3dsware"
+        }
+    }, 
+    {
+        "pk": 124, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Wii U", 
+            "created": "2012-08-31T04:36:49.141Z", 
+            "remote_id": 139, 
+            "modified": "2012-08-31T04:36:49.141Z", 
+            "image_url": "http://media.giantbomb.com/uploads/8/81966/2228024-hero_icon.jpg", 
+            "slug": "wii-u"
+        }
+    }, 
+    {
+        "pk": 125, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Browser", 
+            "created": "2012-08-31T04:36:49.363Z", 
+            "remote_id": 140, 
+            "modified": "2012-08-31T04:36:49.363Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/4231/942780-q20_icon.jpg", 
+            "slug": "browser"
+        }
+    }, 
+    {
+        "pk": 126, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Sega SG-1000", 
+            "created": "2012-08-31T04:36:49.542Z", 
+            "remote_id": 141, 
+            "modified": "2012-08-31T04:36:49.542Z", 
+            "image_url": "http://media.giantbomb.com/uploads/12/126045/1770079-giant_bomb_sub_icon.jpg", 
+            "slug": "sega-sg-1000"
+        }
+    }, 
+    {
+        "pk": 127, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Commodore CDTV", 
+            "created": "2012-08-31T04:36:49.704Z", 
+            "remote_id": 142, 
+            "modified": "2012-08-31T04:36:49.704Z", 
+            "image_url": "http://media.giantbomb.com/uploads/10/103221/2017382-cdtv_icon.jpg", 
+            "slug": "commodore-cdtv"
+        }
+    }, 
+    {
+        "pk": 128, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation Network (Vita)", 
+            "created": "2012-08-31T04:36:49.870Z", 
+            "remote_id": 143, 
+            "modified": "2012-08-31T04:36:49.870Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/1992/2124933-psnpsv1_icon.png", 
+            "slug": "playstation-network-vita"
+        }
+    }, 
+    {
+        "pk": 129, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Leapfrog Didj", 
+            "created": "2012-08-31T04:36:50.034Z", 
+            "remote_id": 144, 
+            "modified": "2012-08-31T04:36:50.034Z", 
+            "image_url": "http://media.giantbomb.com/uploads/14/147851/2203035-didj_custom_gaming_system_product_shot_540x360_icon.jpg", 
+            "slug": "leapfrog-didj"
+        }
+    }, 
+    {
+        "pk": 130, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Xbox Durango (working title)", 
+            "created": "2012-08-31T04:36:50.199Z", 
+            "remote_id": 145, 
+            "modified": "2012-08-31T04:36:50.200Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/2223919-durango_icon.jpeg", 
+            "slug": "xbox-durango-working-title"
+        }
+    }, 
+    {
+        "pk": 131, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "PlayStation Orbis (working title)", 
+            "created": "2012-08-31T04:36:50.459Z", 
+            "remote_id": 146, 
+            "modified": "2012-08-31T04:36:50.459Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/2223927-sonymakebelieve_icon.jpeg", 
+            "slug": "playstation-orbis-working-title"
+        }
+    }, 
+    {
+        "pk": 132, 
+        "model": "gmecol.platform", 
+        "fields": {
+            "name": "Watara Supervision", 
+            "created": "2012-08-31T04:36:51.013Z", 
+            "remote_id": 147, 
+            "modified": "2012-08-31T04:36:51.013Z", 
+            "image_url": "http://media.giantbomb.com/uploads/0/26/2266198-supervision_icon.jpeg", 
+            "slug": "watara-supervision"
+        }
+    }
+]

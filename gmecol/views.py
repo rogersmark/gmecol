@@ -3,6 +3,7 @@ from giantbomb import giantbomb
 from django.shortcuts import render
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.http import HttpResponseNotFound
 
 import forms, models
 
@@ -32,27 +33,32 @@ def game_detail(request, remote_id):
     from Giant Bomb's API and saves it locally
     '''
     remote_id = int(remote_id)
-    try:
-        game = models.Game.objects.get(remote_id=remote_id)
-    except models.Game.DoesNotExist:
-        print "exception"
+    games = models.Game.objects.filter(remote_id=remote_id)
+    if not games.exists():
         gb = giantbomb.Api(settings.GIANT_BOMB_API_KEY)
-        g = gb.getGame(remote_id)
-        # Cheap async safety with the get_or_create
-        game_platforms = models.Platform.objects.filter(
-            remote_id__in=[x.id for x in g.platforms]
-        )
-        for platform in game_platforms:
-            game, created = models.Game.objects.get_or_create(
-                platform=platform,
-                remote_id=g.id,
-                slug=slugify('%s-%s' % (g.name, platform.name)),
-                image_url=g.image.icon,
-                name=g.name
+        try:
+            g = gb.getGame(remote_id)
+        except giantbomb.GiantBombError:
+            g = None
+
+        if g is not None:
+            game_platforms = models.Platform.objects.filter(
+                remote_id__in=[x.id for x in g.platforms]
             )
-    except models.Game.MultipleObjectsReturned:
-        game = models.Game.objects.filter(remote_id=remote_id)[0]
+            for platform in game_platforms:
+                game, created = models.Game.objects.get_or_create(
+                    platform=platform,
+                    remote_id=g.id,
+                    slug=slugify('%s-%s' % (g.name, platform.name)),
+                    image_url=g.image.icon,
+                    name=g.name
+                )
+
+        games = models.Game.objects.filter(remote_id=remote_id)
+
+    if not games:
+        return HttpResponseNotFound()
 
     return render(request, 'gmecol/game_detail.html', {
-        'game': game
+        'games': games
     })
