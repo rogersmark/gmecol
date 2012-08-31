@@ -1,0 +1,17 @@
+{% extends 'gmecol/base.html' %}
+
+{% block title %} - Search {% endblock %}
+{% block content %}
+    <div id='results'>
+        {% for game in games %}
+            <p>{{ game.name }} <img src={{ game.image.icon_url }} \></p>
+        {% endfor %}
+    </div>
+    <div id='search'>
+        <form action='' method='get'>
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+{% endblock %}
+

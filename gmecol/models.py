@@ -20,6 +20,11 @@ class Platform(BaseModel):
 
     name = models.CharField(max_length=64)
     slug = models.SlugField(unique=True)
+    image_url = models.TextField()
+    remote_id = models.IntegerField()
+
+    def __unicode__(self):
+        return u'%s' % self.name
 
 
 class Game(BaseModel):
@@ -28,6 +33,11 @@ class Game(BaseModel):
     name = models.CharField(max_length=128)
     slug = models.SlugField(unique=True)
     platform = models.ForeignKey('Platform')
+    image_url = models.TextField()
+    remote_id = models.IntegerField()
+
+    def __unicode__(self):
+        return u'%s' % self.name
 
 
 class UserGame(BaseModel):
@@ -43,9 +53,16 @@ class UserGame(BaseModel):
     for_trade = models.BooleanField(default=False)
     for_sale = models.BooleanField(default=False)
 
+    def __unicode__(self):
+        return u'%s - %s' % (self.game.platform, self.game.name)
+
+
 class UserProfile(BaseModel):
     ''' Profile for tracking a user's information and catalog '''
 
     user = models.OneToOneField('auth.User')
     games = models.ManyToManyField('Game', through='UserGame')
     platforms = models.ManyToManyField('Platform')
+
+    def __unicode__(self):
+        return '%s' % self.user.username

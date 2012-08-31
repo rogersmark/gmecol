@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('',
-
+urlpatterns = patterns('gmecol.views',
+    url('^search/$', 'search', name='search'),
 )
