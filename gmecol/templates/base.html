@@ -43,7 +43,7 @@
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               {% if request.user.is_authenticated %}
-                  Logged in as <a href="#" class="navbar-link">{{ request.user.username }}</a>
+                  Logged in as <a href="#" class="navbar-link">{{ request.user.username }}</a> : <a href="{% url auth_logout %}">Logout</a>
               {% else %}
                   <a href="{% url auth_login %}">Login</a>
               {% endif %}
