@@ -1595,5 +1595,33 @@
             "image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
             "slug": "quake-zeebo"
         }
+    },
+    {
+        "pk": 3, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "test_user", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": false, 
+            "is_staff": false, 
+            "last_login": "2012-09-01T05:12:51.727Z", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "pbkdf2_sha256$10000$cn0oAY243KOj$8czxTmSUmtTLuyHPsHzcVskDwrKDVTcVt4gP3JOTzAA=", 
+            "email": "test_user@f4ntasmic.com", 
+            "date_joined": "2012-09-01T05:12:51.727Z"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "gmecol.userprofile", 
+        "fields": {
+            "platforms": [], 
+            "user": 3, 
+            "modified": "2012-09-01T05:15:51.630Z", 
+            "created": "2012-09-01T05:15:51.630Z"
+        }
     }
 ]

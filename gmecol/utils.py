@@ -59,6 +59,15 @@ def giant_bomb_game_detail(remote_id):
         cache.set(cache_key, game, settings.GAME_KEY_EXPIRATION)
 
     if game and len(game.platforms) > games_count:
+        genres = []
+        for genre in game.genres:
+            new_genre, created = models.Genre.objects.get_or_create(
+                name=genre.name,
+                slug=slugify(genre.name),
+                remote_id=genre.id
+            )
+            genres.append(new_genre)
+
         game_platforms = models.Platform.objects.filter(
             remote_id__in=[x.id for x in game.platforms]
         )
@@ -70,5 +79,6 @@ def giant_bomb_game_detail(remote_id):
                 image_url=game.image.icon,
                 name=game.name
             )
+            [new_game.genres.add(x) for x in genres]
 
     return models.Game.objects.filter(remote_id=remote_id)

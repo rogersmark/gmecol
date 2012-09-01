@@ -27,6 +27,17 @@ class Platform(BaseModel):
         return u'%s' % self.name
 
 
+class Genre(BaseModel):
+    ''' Genre the game belongs in '''
+
+    name = models.CharField(max_length=64)
+    slug = models.SlugField(unique=True)
+    remote_id = models.IntegerField()
+
+    def __unicode__(self):
+        return u'%s' % self.name
+
+
 class Game(BaseModel):
     ''' Table for holding game entries '''
 
@@ -35,6 +46,7 @@ class Game(BaseModel):
     platform = models.ForeignKey('Platform')
     image_url = models.TextField()
     remote_id = models.IntegerField()
+    genres = models.ManyToManyField('Genre')
 
     def __unicode__(self):
         return u'%s' % self.name

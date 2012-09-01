@@ -4,7 +4,34 @@
 <p>{{ game.platform.name }}</p>
 {% endblock %}
 {% block content %}
-    <div class="span4">
+    <div class="span1">
         <p><img src="{{ game.image_url }}" /></p>
     </div>
+    <div class="span5">
+        <ul>
+            <li>Title: {{ game.name }}</li>
+            <li>Genres:</li>
+                <ul>
+                    {% for genre in game.genres.all %}
+                        <li>{{ genre.name }}</li>
+                    {% endfor %}
+                </ul>
+            <li>Platform: {{ game.platform.name }}</li>
+        </ul>
+    </div>
+    <div class="span3">
+        <div class="btn-group">
+            {% if game in request.user.userprofile.games.all %}
+                <button class="btn btn-large" disabled="disabled">In Collection</button>
+            {% else %}
+                <a href="{% url add-game-to-collection game.remote_id game.platform.remote_id %}"><button class="btn btn-large">Add to Collection</button></a>
+            {% endif %}
+            <button class="btn btn-large dropdown-toggle" disabled="disabled" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <!-- dropdown menu links -->
+            </ul>
+    </div>
+</div>
 {% endblock %}

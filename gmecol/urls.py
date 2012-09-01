@@ -5,5 +5,7 @@ urlpatterns = patterns('gmecol.views',
     url('^game/(?P<remote_id>\d+)/$', 'game_detail', name='game-detail'),
     url('^game/(?P<game_id>\d+)/platform/(?P<platform_id>\d+)/$',
         'game_platform_detail', name='game-platform-detail'),
+    url('^game/(?P<game_id>\d+)/platform/(?P<platform_id>\d+)/add/$',
+        'add_game_to_collection', name='add-game-to-collection'),
     url('^search/$', 'search', name='search'),
 )
