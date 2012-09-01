@@ -73,3 +73,21 @@ def add_game_to_collection(request, game_id, platform_id):
         )
 
     return redirect('game-platform-detail', game_id, platform_id)
+
+
+@login_required
+def view_collection(request):
+    ''' Views a users collection '''
+    genres = models.Genre.objects.filter(
+        pk__in=request.user.userprofile.games.all().values_list(
+            'genres__pk', flat=True)
+    ).distinct()
+    platforms = models.Platform.objects.filter(
+        pk__in=request.user.userprofile.games.all().values_list(
+            'platform__pk', flat=True)
+    ).distinct()
+
+    return render(request, 'gmecol/user-collection.html', {
+        'platforms': platforms,
+        'genres': genres
+    })

@@ -8,4 +8,5 @@ urlpatterns = patterns('gmecol.views',
     url('^game/(?P<game_id>\d+)/platform/(?P<platform_id>\d+)/add/$',
         'add_game_to_collection', name='add-game-to-collection'),
     url('^search/$', 'search', name='search'),
+    url('^collection/$', 'view_collection', name='view-collection'),
 )
