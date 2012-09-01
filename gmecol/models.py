@@ -63,7 +63,7 @@ class UserGame(BaseModel):
 
     game = models.ForeignKey('Game')
     user = models.ForeignKey('UserProfile')
-    rating = models.IntegerField(choices=RATINGS, default=3)
+    rating = models.IntegerField(choices=RATINGS, blank=True, null=True)
     for_trade = models.BooleanField(default=False)
     for_sale = models.BooleanField(default=False)
 
