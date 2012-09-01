@@ -2,9 +2,6 @@ from mock import Mock, patch
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
-from django.conf import settings
-
-import models
 
 
 class MockGBResponse(object):
@@ -44,11 +41,18 @@ class TestGmeColViews(TestCase):
         giant_mock.return_value = game_mock
         response = self.client.get(reverse('game-detail', args=['1']))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(models.Game.objects.count(), 1)
+        self.assertEqual(response.context['game_root'].remote_id, 1)
+        self.assertEqual(response.context['games'].count(), 1)
 
     @patch('giantbomb.giantbomb.Api.getGame')
     def test_game_detail_404(self, giant_mock):
         giant_mock.return_value = None
         response = self.client.get(reverse('game-detail', args=['1']))
         self.assertEqual(response.status_code, 404)
-        self.assertEqual(models.Game.objects.count(), 0)
+
+    def test_game_platform_detail(self):
+        response = self.client.get(reverse('game-platform-detail',
+            args=[8015, 122]
+        ))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['game'].name, 'Quake')

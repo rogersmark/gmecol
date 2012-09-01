@@ -1582,5 +1582,18 @@
             "image_url": "http://media.giantbomb.com/uploads/0/26/2266198-supervision_icon.jpeg", 
             "slug": "watara-supervision"
         }
+    },
+    {
+        "pk": 21, 
+        "model": "gmecol.game", 
+        "fields": {
+            "name": "Quake", 
+            "created": "2012-09-01T00:14:04.846Z", 
+            "remote_id": 8015, 
+            "modified": "2012-09-01T00:14:04.846Z", 
+            "platform": 108, 
+            "image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "slug": "quake-zeebo"
+        }
     }
 ]

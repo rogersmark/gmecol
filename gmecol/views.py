@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseNotFound
 
-from gmecol import forms, utils
+from gmecol import models, forms, utils
 
 
 def index(request):
@@ -38,4 +38,19 @@ def game_detail(request, remote_id):
     return render(request, 'gmecol/game_detail.html', {
         'games': games,
         'game_root': game_root,
+    })
+
+
+def game_platform_detail(request, game_id, platform_id):
+    ''' Takes a remote_id for a game, along with a platform_id to find the
+    exact copy of a game a user is requesting
+    '''
+    game = get_object_or_404(
+        models.Game,
+        remote_id=game_id,
+        platform__remote_id=platform_id
+    )
+
+    return render(request, 'gmecol/game_platform_detail.html', {
+        'game': game
     })
