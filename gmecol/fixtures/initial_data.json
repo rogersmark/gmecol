@@ -1613,15 +1613,5 @@
             "email": "test_user@f4ntasmic.com", 
             "date_joined": "2012-09-01T05:12:51.727Z"
         }
-    },
-    {
-        "pk": 2, 
-        "model": "gmecol.userprofile", 
-        "fields": {
-            "platforms": [], 
-            "user": 3, 
-            "modified": "2012-09-01T05:15:51.630Z", 
-            "created": "2012-09-01T05:15:51.630Z"
-        }
     }
 ]
