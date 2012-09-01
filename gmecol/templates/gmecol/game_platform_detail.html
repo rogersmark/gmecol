@@ -26,12 +26,16 @@
             {% else %}
                 <a href="{% url add-game-to-collection game.remote_id game.platform.remote_id %}"><button class="btn btn-large">Add to Collection</button></a>
             {% endif %}
-            <button class="btn btn-large dropdown-toggle" disabled="disabled" data-toggle="dropdown">
+            <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
                 <!-- dropdown menu links -->
+                <li><a href="#">Rate</a></li>
+                <li><a href="#">For Trade?</a></li>
+                <li><a href="#">For Sale?</a></li>
+
             </ul>
+        </div>
     </div>
-</div>
 {% endblock %}
