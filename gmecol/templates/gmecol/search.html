@@ -4,7 +4,7 @@
 {% block content %}
     <div id='results'>
         {% for game in games %}
-            <p>{{ game.name }} <img src={{ game.image.icon_url }} \></p>
+        <p><a href="{% url game-detail game.id %}">{{ game.name }}</a><img src={{ game.image.icon_url }} \></p>
         {% endfor %}
     </div>
     <div id='search'>

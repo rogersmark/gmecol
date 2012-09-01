@@ -2,8 +2,18 @@ from mock import Mock, patch
 
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 import models
+
+
+class MockGBResponse(object):
+
+    def __init__(self, id, image, name, platforms):
+        self.id = id
+        self.image = image
+        self.name = name
+        self.platforms = platforms
 
 
 class TestGmeColViews(TestCase):
@@ -25,13 +35,12 @@ class TestGmeColViews(TestCase):
 
     @patch('giantbomb.giantbomb.Api.getGame')
     def test_game_detail(self, giant_mock):
-        game_mock = Mock(
+        game_mock = MockGBResponse(
             id=1,
             image=Mock(icon=''),
             name='Test',
             platforms=[Mock(id=1)]
         )
-        game_mock.name = 'Test'
         giant_mock.return_value = game_mock
         response = self.client.get(reverse('game-detail', args=['1']))
         self.assertEqual(response.status_code, 200)

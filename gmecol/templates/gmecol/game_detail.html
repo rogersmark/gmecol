@@ -1,4 +1,11 @@
 {% extends 'gmecol/base.html' %}
 {% block content %}
-    <p>{{ game.name }}: <img src="{{ game.image_url }}" /></p>
+    <h2>{{ game_root.name }}</h1>
+    <hr />
+    <h4>Platforms: </h4>
+    <ul>
+        {% for game in games %}
+            <li>{{ game.platform.name }} <img src="{{ game.platform.image_url }}" /></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
