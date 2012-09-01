@@ -1,5 +1,10 @@
 {% extends 'gmecol/base.html' %}
+{% block stage_header %}{{ game.name }}{% endblock %}
+{% block stage_intro %}
+<p>{{ game.platform.name }}</p>
+{% endblock %}
 {% block content %}
-    <h1>{{ game.name }} - {{ game.platform.name }}</h1>
-    <p><img src="{{ game.image_url }}" \></p>
+    <div class="span4">
+        <p><img src="{{ game.image_url }}" /></p>
+    </div>
 {% endblock %}
