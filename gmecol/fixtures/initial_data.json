@@ -1593,7 +1593,8 @@
             "modified": "2012-09-01T00:14:04.846Z", 
             "platform": 108, 
             "image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
-            "slug": "quake-zeebo"
+            "slug": "quake-zeebo",
+            "genres": [1, 2]
         }
     },
     {
@@ -1612,6 +1613,28 @@
             "password": "pbkdf2_sha256$10000$cn0oAY243KOj$8czxTmSUmtTLuyHPsHzcVskDwrKDVTcVt4gP3JOTzAA=", 
             "email": "test_user@f4ntasmic.com", 
             "date_joined": "2012-09-01T05:12:51.727Z"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "gmecol.genre", 
+        "fields": {
+            "slug": "action", 
+            "remote_id": 1, 
+            "modified": "2012-09-01T04:36:35.555Z", 
+            "name": "Action", 
+            "created": "2012-09-01T04:36:35.555Z"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "gmecol.genre", 
+        "fields": {
+            "slug": "first-person-shooter", 
+            "remote_id": 32, 
+            "modified": "2012-09-01T04:36:36.046Z", 
+            "name": "First-Person Shooter", 
+            "created": "2012-09-01T04:36:36.046Z"
         }
     }
 ]

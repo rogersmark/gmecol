@@ -7,7 +7,7 @@
         <h3>Genres</h3>
         <ul>
             {% for genre in genres %}
-                <li>{{ genre.name }}</li>
+                <li><a href="{% url collection-by-genre genre.pk %}">{{ genre.name }}</a></li>
             {% endfor %}
         </ul>
 
@@ -16,7 +16,7 @@
         <h3>Platforms</h3>
         <ul>
             {% for platform in platforms %}
-                <li>{{ platform.name }}</li>
+                <li><a href="{% url collection-by-platform platform.pk %}">{{ platform.name }}</a></li>
             {% endfor %}
         </ul>
 

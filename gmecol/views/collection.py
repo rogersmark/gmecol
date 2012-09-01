@@ -34,7 +34,31 @@ def view_collection(request):
             'platform__pk', flat=True)
     ).distinct()
 
-    return render(request, 'gmecol/user-collection.html', {
+    return render(request, 'gmecol/user_collection.html', {
         'platforms': platforms,
         'genres': genres
+    })
+
+
+@login_required
+def view_collection_by_genre(request, genre_id):
+    ''' View games in a collection by a genre '''
+    genre = get_object_or_404(models.Genre, pk=genre_id)
+    games = request.user.userprofile.games.filter(genres=genre)
+
+    return render(request, 'gmecol/user_collection_by_genre.html', {
+        'genre': genre,
+        'games': games
+    })
+
+
+@login_required
+def view_collection_by_platform(request, platform_id):
+    ''' View games in a collection by platform '''
+    platform = get_object_or_404(models.Platform, pk=platform_id)
+    games = request.user.userprofile.games.filter(platform=platform)
+
+    return render(request, 'gmecol/user_collection_by_platform.html', {
+        'platform': platform,
+        'games': games
     })

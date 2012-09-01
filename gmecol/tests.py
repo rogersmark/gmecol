@@ -17,7 +17,7 @@ class MockGBResponse(object):
         self.genres = genres
 
 
-class TestGmeColViews(TestCase):
+class TestMainGmeColViews(TestCase):
 
     def test_index(self):
         ''' Test the index view '''
@@ -66,12 +66,58 @@ class TestGmeColViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['game'].name, 'Quake')
 
-    def test_add_game_to_collection(self):
+
+class TestGmeColCollectionViews(TestCase):
+
+    def setUp(self):
+        super(TestGmeColCollectionViews, self).setUp()
         assert self.client.login(username='test_user', password='test')
+        self.user = User.objects.get(username='test_user')
+        self.quake = models.Game.objects.get(name='Quake')
+
+    def _add_game_to_profile(self):
+        ''' Helper function to add games to a user's profile for testing '''
+        models.UserGame.objects.create(
+            user=self.user.userprofile,
+            game=self.quake
+        )
+
+    def test_add_game_to_collection(self):
+        ''' Tests the addition of games to a user's collection. '''
         response = self.client.get(reverse('add-game-to-collection',
             args=[8015, 122]
         ))
         self.assertEqual(response.status_code, 302)
-        user = User.objects.get(username='test_user')
-        quake = models.Game.objects.get(name='Quake')
-        assert quake in user.userprofile.games.all()
+        assert self.quake in self.user.userprofile.games.all()
+
+    def test_view_collection(self):
+        ''' Test for viewing a user's collection '''
+        response = self.client.get(reverse('add-game-to-collection',
+            args=[8015, 122]
+        ))
+        response = self.client.get(reverse('view-collection'))
+        self.assertEqual(response.status_code, 200)
+        assert self.quake.platform in response.context['platforms']
+        for genre in self.quake.genres.all():
+            assert genre in response.context['genres']
+
+    def test_view_collection_by_genre(self):
+        ''' Test viewing collection of games grouped by genre '''
+        self._add_game_to_profile()
+        genre = self.quake.genres.all()[0]
+        response = self.client.get(reverse('collection-by-genre',
+            args=[genre.pk]
+        ))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['genre'], genre)
+        assert self.quake in response.context['games']
+
+    def test_view_collection_by_platform(self):
+        ''' Test viewing collection of games grouped by platform '''
+        self._add_game_to_profile()
+        response = self.client.get(reverse('collection-by-platform',
+            args=[self.quake.platform.pk]
+        ))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['platform'], self.quake.platform)
+        assert self.quake in response.context['games']
