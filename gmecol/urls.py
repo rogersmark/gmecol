@@ -20,4 +20,5 @@ urlpatterns += patterns('gmecol.views.collection',
 
 urlpatterns += patterns('gmecol.views.profile',
     url('^profile/(?P<user_id>\d+)/$', 'profile', name='profile'),
+    url('^profile/message/send/$', 'send_message', name='send-message'),
 )

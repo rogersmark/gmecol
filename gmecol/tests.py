@@ -4,6 +4,8 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
+from friends import models as friends
+
 from gmecol import models
 
 
@@ -129,6 +131,7 @@ class TestGmeColProfileViews(TestCase):
         super(TestGmeColProfileViews, self).setUp()
         assert self.client.login(username='test_user', password='test')
         self.user = User.objects.get(username='test_user')
+        friends.Friendship.objects.create(user=self.user)
 
     def test_view_own_profile(self):
         ''' Test viewing the user's profile '''
@@ -142,3 +145,23 @@ class TestGmeColProfileViews(TestCase):
         response = self.client.get(reverse('profile', args=[user.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['user'], user)
+
+    def test_send_message_to_friend(self):
+        ''' Test sending a message to a friend '''
+        new_user = User.objects.create(username='friend')
+        new_user.friendship.friends.add(self.user.friendship)
+        response = self.client.post(reverse('send-message'), {
+            'from_user': self.user.pk,
+            'to_user': new_user.pk,
+            'subject': 'test',
+            'body': 'test',
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(
+            models.Message.objects.filter(
+                subject='test',
+                body='test',
+                from_user=self.user,
+                to_user=new_user
+            ).exists()
+        )

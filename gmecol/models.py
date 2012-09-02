@@ -87,6 +87,27 @@ class UserProfile(BaseModel):
         )
 
 
+class Message(BaseModel):
+    ''' Model for holding private messages between users '''
+
+    from_user = models.ForeignKey(User, related_name='from_user')
+    to_user = models.ForeignKey(User, related_name='to_user')
+    subject = models.CharField(max_length=256)
+    body = models.TextField()
+    read = models.BooleanField(default=False)
+    deleted = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return u'From: %s, To: %s, Subject: %s' % (
+            self.from_user.username,
+            self.to_user.username,
+            self.subject
+        )
+
+    class Meta:
+        ordering = ('-created', )
+
+
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
