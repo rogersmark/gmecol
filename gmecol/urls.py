@@ -17,3 +17,7 @@ urlpatterns += patterns('gmecol.views.collection',
     url('^collection/platform/(?P<platform_id>\d+)/$',
         'view_collection_by_platform', name='collection-by-platform'),
 )
+
+urlpatterns += patterns('gmecol.views.profile',
+    url('^profile/(?P<user_id>\d+)/$', 'profile', name='profile'),
+)

@@ -76,10 +76,15 @@ class UserProfile(BaseModel):
 
     user = models.OneToOneField('auth.User')
     games = models.ManyToManyField('Game', through='UserGame')
-    platforms = models.ManyToManyField('Platform')
 
     def __unicode__(self):
         return '%s' % self.user.username
+
+    @property
+    def platforms(self):
+        return Platform.objects.filter(
+            pk__in=self.games.all().values_list('platform', flat=True)
+        )
 
 
 def create_user_profile(sender, instance, created, **kwargs):
