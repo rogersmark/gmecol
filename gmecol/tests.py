@@ -121,3 +121,24 @@ class TestGmeColCollectionViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['platform'], self.quake.platform)
         assert self.quake in response.context['games']
+
+
+class TestGmeColProfileViews(TestCase):
+
+    def setUp(self):
+        super(TestGmeColProfileViews, self).setUp()
+        assert self.client.login(username='test_user', password='test')
+        self.user = User.objects.get(username='test_user')
+
+    def test_view_own_profile(self):
+        ''' Test viewing the user's profile '''
+        response = self.client.get(reverse('profile', args=[self.user.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['user'], self.user)
+
+    def test_view_other_profile(self):
+        ''' Test viewing someone else's profile '''
+        user = User.objects.create(username='other_test')
+        response = self.client.get(reverse('profile', args=[user.pk]))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['user'], user)
