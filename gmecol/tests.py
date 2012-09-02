@@ -103,6 +103,41 @@ class TestGmeColCollectionViews(TestCase):
         for genre in self.quake.genres.all():
             assert genre in response.context['genres']
 
+    def test_view_game_in_collection(self):
+        ''' Test viewing a game that's in your collection '''
+        self._add_game_to_profile()
+        response = self.client.get(reverse('game-platform-detail',
+            args=[8015, 122]
+        ))
+        self.assertEqual(response.status_code, 200)
+        assert response.context['user_game']
+
+    def test_rate_game_in_collection_nonzero(self):
+        ''' Tests rating functionality with positive number '''
+        self._add_game_to_profile()
+        response = self.client.get(reverse('rate-game', args=[self.quake.pk]), {
+            'score': '1',
+        })
+        self.assertEqual(response.status_code, 200)
+        ug = models.UserGame.objects.get(
+            user=self.user.userprofile,
+            game__pk=self.quake.pk
+        )
+        self.assertEqual(ug.rating, 1)
+
+    def test_rate_game_in_collection_reset(self):
+        ''' Tests rating functionality with 0 to null the rating '''
+        self._add_game_to_profile()
+        response = self.client.get(reverse('rate-game', args=[self.quake.pk]), {
+            'score': '0',
+        })
+        self.assertEqual(response.status_code, 200)
+        ug = models.UserGame.objects.get(
+            user=self.user.userprofile,
+            game__pk=self.quake.pk
+        )
+        self.assertEqual(ug.rating, None)
+
     def test_view_collection_by_genre(self):
         ''' Test viewing collection of games grouped by genre '''
         self._add_game_to_profile()

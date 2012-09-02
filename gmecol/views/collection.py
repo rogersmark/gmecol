@@ -1,3 +1,7 @@
+import json
+from decimal import Decimal
+
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -62,3 +66,22 @@ def view_collection_by_platform(request, platform_id):
         'platform': platform,
         'games': games
     })
+
+
+@login_required
+def rate_game(request, game_id):
+    ''' View taking a game PK and score, and setting the player's rating. If
+    0 is received, we null the score
+    '''
+    game = get_object_or_404(
+        models.UserGame,
+        game__pk=game_id,
+        user=request.user.userprofile
+    )
+    score = Decimal(request.GET.get('score')) or None
+    game.rating = score
+    game.save()
+    return HttpResponse(
+        json.dumps({'status': 1}),
+        mimetype='application/json'
+    )

@@ -51,6 +51,17 @@ def game_platform_detail(request, game_id, platform_id):
         platform__remote_id=platform_id
     )
 
+    user_game = None
+    if request.user.is_authenticated():
+        try:
+            user_game = models.UserGame.objects.get(
+                game=game,
+                user=request.user.userprofile
+            )
+        except models.UserGame.DoesNotExist:
+            pass
+
     return render(request, 'gmecol/game_platform_detail.html', {
-        'game': game
+        'game': game,
+        'user_game': user_game
     })

@@ -59,11 +59,9 @@ class UserGame(BaseModel):
     for that M2M relationship such as game ratings.
     '''
 
-    RATINGS = [(x, x) for x in range(0, 6)]
-
     game = models.ForeignKey('Game')
     user = models.ForeignKey('UserProfile')
-    rating = models.IntegerField(choices=RATINGS, blank=True, null=True)
+    rating = models.DecimalField(null=True, max_digits=2, decimal_places=1)
     for_trade = models.BooleanField(default=False)
     for_sale = models.BooleanField(default=False)
 
