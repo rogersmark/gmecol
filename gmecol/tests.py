@@ -181,13 +181,33 @@ class TestGmeColProfileViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['user'], user)
 
+
+class TestGmeColMessagingViews(TestCase):
+    ''' Test messaging functionality '''
+
+    def setUp(self):
+        super(TestGmeColMessagingViews, self).setUp()
+        assert self.client.login(username='test_user', password='test')
+        self.user = User.objects.get(username='test_user')
+        friends.Friendship.objects.create(user=self.user)
+
+        self.friend = User.objects.create(username='friend')
+        self.friend.friendship.friends.add(self.user.friendship)
+
+    def _create_message(self, from_user, to_user, subject, body):
+        ''' helper function to create messages '''
+        return models.Message.objects.create(
+            from_user=from_user,
+            to_user=to_user,
+            subject=subject,
+            body=body
+        )
+
     def test_send_message_to_friend(self):
         ''' Test sending a message to a friend '''
-        new_user = User.objects.create(username='friend')
-        new_user.friendship.friends.add(self.user.friendship)
         response = self.client.post(reverse('send-message'), {
             'from_user': self.user.pk,
-            'to_user': new_user.pk,
+            'to_user': self.friend.pk,
             'subject': 'test',
             'body': 'test',
         })
@@ -197,6 +217,53 @@ class TestGmeColProfileViews(TestCase):
                 subject='test',
                 body='test',
                 from_user=self.user,
-                to_user=new_user
+                to_user=self.friend
             ).exists()
         )
+
+    def test_view_message_list(self):
+        ''' Test viewing a user's messages. Shows we don't show sent
+        or deleted messages
+        '''
+        self._create_message(self.friend, self.user, 'Test1', 'Testing')
+        self._create_message(self.friend, self.user, 'Test2', 'Testing')
+        self._create_message(self.user, self.friend, 'Test2', 'Testing')
+        message = self._create_message(
+            self.friend, self.user, 'Test2', 'Testing')
+        message.deleted = True
+        message.save()
+        response = self.client.get(reverse('message-list'))
+        self.assertEqual(response.context['messages'].count(), 2)
+
+    def test_view_message_list_sent(self):
+        ''' Test proving that we only show sent messages with the sent
+        filtering on message-list
+        '''
+        self._create_message(self.friend, self.user, 'Test1', 'Testing')
+        self._create_message(self.friend, self.user, 'Test2', 'Testing')
+        self._create_message(self.user, self.friend, 'Test2', 'Testing')
+        message = self._create_message(
+            self.friend, self.user, 'Test2', 'Testing')
+        message.deleted = True
+        message.save()
+        response = self.client.get(reverse('message-list'), {
+            'folder': 'sent'
+        })
+        self.assertEqual(response.context['messages'].count(), 1)
+
+    def test_view_message_list_deleted(self):
+        ''' Test proving that we only show deleted messages with the deleted
+        filtering on message-list
+        '''
+        self._create_message(self.friend, self.user, 'Test1', 'Testing')
+        self._create_message(self.friend, self.user, 'Test2', 'Testing')
+        self._create_message(self.user, self.friend, 'Test2', 'Testing')
+        self._create_message(self.user, self.friend, 'Test2', 'Testing')
+        message = self._create_message(
+            self.friend, self.user, 'Test2', 'Testing')
+        message.deleted = True
+        message.save()
+        response = self.client.get(reverse('message-list'), {
+            'folder': 'deleted'
+        })
+        self.assertEqual(response.context['messages'].count(), 1)

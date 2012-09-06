@@ -29,7 +29,7 @@ urlpatterns += patterns('gmecol.views.profile',
 
 # messaging views
 urlpatterns += patterns('gmecol.views.messages',
-    url('^messages/$', 'message_list', name='message_list'),
+    url('^messages/$', 'message_list', name='message-list'),
     url('^messages/send/$', 'send_message', name='send-message'),
     url('^messages/(?P<message_id>\d+)/$',
         'message_detail', name='message-detail'),

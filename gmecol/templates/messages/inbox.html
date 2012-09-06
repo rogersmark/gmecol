@@ -2,27 +2,27 @@
 {% block title %} - Messages {% endblock %}
 {% block content %}
     <ul id="mail-tabs" class="nav nav-tabs">
-        <li><a href="{% url message_list %}">Inbox</a></li>
-        <li><a href="{% url message_list %}?folder=sent">Sent</a></li>
-        <li><a href="{% url message_list %}?folder=deleted">Deleted</a></li>
+        <li><a href="{% url message-list %}">Inbox</a></li>
+        <li><a href="{% url message-list %}?folder=sent">Sent</a></li>
+        <li><a href="{% url message-list %}?folder=deleted">Deleted</a></li>
     </ul>
     <div class="tab-content" id="mail-tab-content">
-    <div class="accordion" id="mail-accordion">
-        {% for message in messages %}
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#mail-accordion" href="#collapse{{ message.pk }}">{{ message.subject }}</a>
-                </div>
-                <div id="collapse{{ message.pk }}" class="accordion-body collapse {% if forloop.first %}in{% endif %}">
-                    <div class="accordion-inner">
-                        {{ message.body|safe }}
+        <div class="accordion" id="mail-accordion">
+            {% for message in messages %}
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#mail-accordion" href="#collapse{{ message.pk }}">{{ message.subject }}</a>
+                    </div>
+                    <div id="collapse{{ message.pk }}" class="accordion-body collapse {% if forloop.first %}in{% endif %}">
+                        <div class="accordion-inner">
+                            {{ message.body|safe }}
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% empty %}
-            <h4>No Messages</h4>
-        {% endfor %}
+            {% empty %}
+                <h4>No Messages</h4>
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}
 
