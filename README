@@ -1,8 +1,11 @@
 gmecol is a temporary name, and likely to change.
 
+demo (major WIP): http://gmecol.f4ntasmic.com/
+
 This project's intention is to be a place where people can build their game catalog, and interacting with the catalog of other's. Hopefully it can be a place where people can find others to trade rare games with, play old games together, and so on. Just starting on it, hopefully a lot more to come.
 
 Installation requirements:
 south
 django-registration
 GiantBomb - https://github.com/xupisco/GiantBomb
+django-simple-friends
