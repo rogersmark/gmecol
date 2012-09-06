@@ -85,6 +85,25 @@ class UserProfile(BaseModel):
         )
 
 
+# TODO: Probably should move the messaging stuff to its own app eventually
+class MessageManager(models.Manager):
+    ''' Message Manager to provide some helper functions '''
+
+    def get_sent(self, user):
+        ''' Returns a QuerySet of messages sent by the user passed in '''
+        return self.filter(from_user__pk=user)
+
+    def get_deleted(self, user):
+        ''' Returns a QuerySet of messages to the user passed in, that have
+        been deleted
+        '''
+        return self.filter(to_user__pk=user, deleted=True)
+
+    def get_messages(self, user):
+        ''' Returns all active messages for a user '''
+        return self.filter(to_user__pk=user, deleted=False)
+
+
 class Message(BaseModel):
     ''' Model for holding private messages between users '''
 
@@ -94,6 +113,8 @@ class Message(BaseModel):
     body = models.TextField()
     read = models.BooleanField(default=False)
     deleted = models.BooleanField(default=False)
+
+    objects = MessageManager()
 
     def __unicode__(self):
         return u'From: %s, To: %s, Subject: %s' % (

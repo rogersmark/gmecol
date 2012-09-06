@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block stage_header %}gmeCol: {{ user.username }}{% endblock %}
+{% block stage_intro %}
+    <p>
+        {% if request.user != user and user not in request.user.friendship.friends.all %}
+            <a href="#">
+                <button class="btn">Add Friend</button>
+            </a>
+        {% endif %}
+    </p>
+{% endblock %}
+{% block content %}
+    <div class="span5">
+        <h4>Friends</h2>
+            {% if user.friendship.friends.all %}
+                <ul>
+                    {% for friend in user.friendship.friends.all %}
+                        <li><a href="{% url profile friend.user.pk %}">{{ friend.user.username }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Go make some friends!</p>
+            {% endif %}
+    </div>
+    <div class="span5">
+        <h4>Platforms</h4>
+            <ul>
+                {% for platform in user.userprofile.platforms %}
+                    <li>{{ platform }}</li>
+                {% endfor %}
+            </ul>
+    </div>
+{% endblock %}

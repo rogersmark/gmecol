@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block stage_header %}gmeCol{% endblock %}
+{% block stage_intro %}
+    <p>Send Message</p>
+{% endblock %}
+{% block content %}
+    <form action='{% url send-message %}' method='post'>{% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Send' />
+    </form>
+{% endblock %}

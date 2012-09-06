@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 
+# general
 urlpatterns = patterns('gmecol.views.main',
     url('^$', 'index', name='index'),
     url('^game/(?P<remote_id>\d+)/$', 'game_detail', name='game-detail'),
@@ -8,6 +9,7 @@ urlpatterns = patterns('gmecol.views.main',
     url('^search/$', 'search', name='search'),
 )
 
+# game collection
 urlpatterns += patterns('gmecol.views.collection',
     url('^game/(?P<game_id>\d+)/platform/(?P<platform_id>\d+)/add/$',
         'add_game_to_collection', name='add-game-to-collection'),
@@ -20,7 +22,15 @@ urlpatterns += patterns('gmecol.views.collection',
         'rate_game', name='rate-game'),
 )
 
+# profile
 urlpatterns += patterns('gmecol.views.profile',
     url('^profile/(?P<user_id>\d+)/$', 'profile', name='profile'),
-    url('^profile/message/send/$', 'send_message', name='send-message'),
+)
+
+# messaging views
+urlpatterns += patterns('gmecol.views.messages',
+    url('^messages/$', 'message_list', name='message_list'),
+    url('^messages/send/$', 'send_message', name='send-message'),
+    url('^messages/(?P<message_id>\d+)/$',
+        'message_detail', name='message-detail'),
 )
