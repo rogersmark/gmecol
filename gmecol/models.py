@@ -64,6 +64,7 @@ class UserGame(BaseModel):
     rating = models.DecimalField(null=True, max_digits=2, decimal_places=1)
     for_trade = models.BooleanField(default=False)
     for_sale = models.BooleanField(default=False)
+    wish = models.BooleanField(default=False)
 
     def __unicode__(self):
         return u'%s - %s' % (self.game.platform, self.game.name)
