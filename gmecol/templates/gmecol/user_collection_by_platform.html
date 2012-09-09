@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block stage_header %}{{ platform.name }} Games{% endblock %}
+{% block stage_header %}{{ platform.name }} {% if wish %}Wishlist{% else %}Games{% endif %}{% endblock %}
 {% block stage_intro %}
 {% endblock %}
 {% block content %}

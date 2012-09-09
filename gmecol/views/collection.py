@@ -46,7 +46,8 @@ def view_collection(request, wish=False):
 
     return render(request, 'gmecol/user_collection.html', {
         'platforms': platforms,
-        'genres': genres
+        'genres': genres,
+        'wish': wish,
     })
 
 

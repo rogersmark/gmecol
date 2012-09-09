@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block stage_header %}{{ genre.name }} Games{% endblock %}
+{% block stage_header %}{{ genre.name }} {% if wish %}WishList{% else %}Games{% endif %}{% endblock %}
 {% block stage_intro %}
 {% endblock %}
 {% block content %}

@@ -93,6 +93,17 @@ class TestGmeColCollectionViews(TestCase):
         self.assertEqual(response.status_code, 302)
         assert not self.user.userprofile.usergame_set.get(game=self.quake).wish
 
+    def test_switch_from_wish_to_collection(self):
+        ''' Tests that adding a game to your collection removes it from your
+        wish list
+        '''
+        self._add_game_to_profile()
+        response = self.client.get(reverse('add-game-to-collection',
+            args=[self.quake.pk]
+        ))
+        self.assertEqual(response.status_code, 302)
+        assert not self.user.userprofile.usergame_set.get(game=self.quake).wish
+
     def test_add_game_to_wishlist(self):
         ''' Test adding a game to a user's wishlist '''
         response = self.client.get(reverse('add-game-to-wish',

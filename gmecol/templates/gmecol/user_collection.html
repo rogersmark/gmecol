@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block stage_header %}Game Collection{% endblock %}
+{% block stage_header %}gmeCol: {% if wish %}Wishlist{% else %}Game Collection{% endif %}{% endblock %}
 {% block stage_intro %}
 {% endblock %}
 {% block content %}
@@ -7,7 +7,11 @@
         <h3>Genres</h3>
         <ul>
             {% for genre in genres %}
-                <li><a href="{% url collection-by-genre genre.pk %}">{{ genre.name }}</a></li>
+                {% if wish %}
+                    <li><a href="{% url wish-by-genre genre.pk %}">{{ genre.name }}</a></li>
+                {% else %}
+                    <li><a href="{% url collection-by-genre genre.pk %}">{{ genre.name }}</a></li>
+                {% endif %}
             {% endfor %}
         </ul>
 
@@ -16,7 +20,11 @@
         <h3>Platforms</h3>
         <ul>
             {% for platform in platforms %}
-                <li><a href="{% url collection-by-platform platform.pk %}">{{ platform.name }}</a></li>
+                {% if wish %}
+                    <li><a href="{% url wish-by-platform platform.pk %}">{{ platform.name }}</a></li>
+                {% else %}
+                    <li><a href="{% url collection-by-platform platform.pk %}">{{ platform.name }}</a></li>
+                {% endif %}
             {% endfor %}
         </ul>
 
