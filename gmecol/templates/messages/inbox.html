@@ -1,27 +1,40 @@
 {% extends 'base_nostage.html' %}
+{% load markup %}
 {% block title %} - Messages {% endblock %}
 {% block content %}
     <ul id="mail-tabs" class="nav nav-tabs">
         <li><a href="{% url message-list %}">Inbox</a></li>
         <li><a href="{% url message-list %}?folder=sent">Sent</a></li>
         <li><a href="{% url message-list %}?folder=deleted">Deleted</a></li>
+        <li><button class="btn btn-primary btn-mini" data-toggle="modal" data-remote="{% url send-message %}" data-target="#send-modal">Message Friends!</button></a></li>
     </ul>
     <div class="tab-content" id="mail-tab-content">
         <div class="accordion" id="mail-accordion">
             {% for message in messages %}
                 <div class="accordion-group">
                     <div class="accordion-heading">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#mail-accordion" href="#collapse{{ message.pk }}">{{ message.subject }}</a>
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#mail-accordion" href="#collapse{{ message.pk }}">{{ message.subject }} - From: {{ message.from_user.username }}</a>
                     </div>
-                    <div id="collapse{{ message.pk }}" class="accordion-body collapse {% if forloop.first %}in{% endif %}">
+                    <div id="collapse{{ message.pk }}" class="accordion-body collapse"> 
                         <div class="accordion-inner">
-                            {{ message.body|safe }}
+                            {{ message.body|markdown }}
                         </div>
                     </div>
                 </div>
             {% empty %}
                 <h4>No Messages</h4>
             {% endfor %}
+        </div>
+    </div>
+    <div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="send-header-label" aria-hidden="true" id="send-modal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="send-header-label">Send Message</h3>
+        </div>
+        <div class="modal-body"> 
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
     </div>
 {% endblock %}

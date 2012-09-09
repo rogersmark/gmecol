@@ -9,7 +9,9 @@ from gmecol import models
 class SearchGamesForm(forms.Form):
     ''' Search the Giant Bomb Games Database for Games '''
 
-    name = forms.CharField()
+    name = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'input-medium search-query'}
+    ))
 
 
 class MessageForm(forms.ModelForm):

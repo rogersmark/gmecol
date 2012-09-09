@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %} - Search {% endblock %}
-{% block stage_header %}Game Search{% endblock %}
+{% block stage_header %}gmeCol: Search{% endblock %}
 {% block stage_intro %}
-    <form action='' method='get'>
+    <form action='' method='get' class="form-search">
         {{ form.as_p }}
-        <input type="submit" value="Submit" />
+        <button tye="submit" class="btn btn-large btn-primary">Search</button>
     </form>
 {% endblock %}
 {% block content %}
