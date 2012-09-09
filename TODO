@@ -1,3 +1,8 @@
 Add views for managing friends
 Allow trade/sale to be toggled
 Spruce up the profile screen
+Change collection/wishlist views to display all and then allow sorting by genre, filter, and rating
+Add pagination for collection/wishlist
+Add read/unread status to Messages
+Allow for deleting of messages
+Paginate Messages
