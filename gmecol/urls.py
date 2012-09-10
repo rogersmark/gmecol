@@ -42,6 +42,15 @@ urlpatterns += patterns('gmecol.views.profile',
     url('^profile/(?P<user_id>\d+)/$', 'profile', name='profile'),
 )
 
+# friends
+urlpatterns += patterns('gmecol.views.manage_friends',
+    url('^friend/list/$', 'list_friends', name='list-friends'),
+    url('^friend/add/(?P<friend_pk>\d+)/$',
+        'add_friend', name='add-friend'),
+    url('^friend/remove/(?P<friend_pk>\d+)/$',
+        'remove_friend', name='remove-friend'),
+)
+
 # messaging views
 urlpatterns += patterns('gmecol.views.messages',
     url('^messages/$', 'message_list', name='message-list'),

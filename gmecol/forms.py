@@ -21,10 +21,11 @@ class MessageForm(forms.ModelForm):
         model = models.Message
         exclude = ('from_user', 'deleted', 'read', )
 
-    def __init__(self, user, *args, **kwargs):
+    def __init__(self, user=None, *args, **kwargs):
         super(MessageForm, self).__init__(*args, **kwargs)
-        self.fields['to_user'].queryset = friends.Friendship.objects.friends_of(
-            user)
+        if user:
+            self.fields['to_user'].queryset = friends.Friendship.objects.friends_of(
+                user)
 
 
 class FriendshipRequestForm(forms.Form):
