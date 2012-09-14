@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
-from friends.models import FriendshipRequest
+from friends.models import Friendship, FriendshipRequest
 
 from gmecol import forms, models
 
@@ -46,7 +46,6 @@ def add_friend(request, friend_pk):
                     to_user=friend,
                     message='friends'
                 )
-                import ipdb; ipdb.set_trace() ### XXX BREAKPOINT
                 form.save()
                 return redirect(reverse('list-friends'))
 
@@ -59,6 +58,7 @@ def add_friend(request, friend_pk):
 @login_required
 def remove_friend(request, friend_pk):
     ''' Ends a friendship for a user '''
+    friend = get_object_or_404(User, pk=friend_pk)
+    Friendship.objects.unfriend(request.user, friend)
 
-    return render(request, 'gmecol/remove_friend.html', {
-    })
+    return redirect('list-friends')

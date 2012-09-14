@@ -6,7 +6,24 @@
         <h3>Friends</h3>
         <ul>
             {% for friend in user.friendship.friends.all %}
-                <li><a href="#">{{ friend }}</li>
+                <li><a href="#">{{ friend }}</a>&nbsp;&nbsp;<button data-toggle="modal" data-target="#friend-modal-{{ friend.pk }}" class="btn btn-primary btn-mini">Remove</button></li>
+                <div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="friend-header-label" aria-hidden="true" id="friend-modal-{{ friend.pk }}">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="friend-header-label">End Friendship with {{ friend.user.username }}?</h3>
+                    </div>
+                    <div class="modal-body"> 
+                        <form action='{% url remove-friend friend.user.pk %}'>
+                            <p>Are you sure you wish to end this friendship?</p>
+                            <button class="btn btn-primary" type="submit">Yes</button>
+                            <button class="btn" data-dismiss="modal">No</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
+                    </div>
+                </div>
             {% endfor %}
         </ul>
+    </div>
 {% endblock %}

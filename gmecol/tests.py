@@ -325,3 +325,53 @@ class TestGmeColMessagingViews(TestCase):
             'folder': 'deleted'
         })
         self.assertEqual(response.context['messages'].count(), 1)
+
+
+class TestGmeColFriendViews(TestCase):
+
+    def setUp(self):
+        super(TestGmeColFriendViews, self).setUp()
+        assert self.client.login(username='test_user', password='test')
+        self.user = User.objects.get(username='test_user')
+        friends.Friendship.objects.create(user=self.user)
+
+        self.friend = User.objects.create(username='friend_test')
+        self.friend.friendship.friends.add(self.user.friendship)
+
+    def test_list_friends(self):
+        ''' Tests the friends list view '''
+        response = self.client.get(reverse('list-friends'))
+        self.assertContains(response, 'friend_test')
+
+    def test_add_friend(self):
+        ''' Tests creating a friendship request '''
+        new_friend = User.objects.create(username='add_friend_test')
+        response = self.client.post(
+            reverse('add-friend', args=[new_friend.pk]),
+            {
+                'to_user': new_friend.pk,
+                'from_user': self.user.pk,
+                'subject': 'Friendship Request',
+                'body': 'Be my friend!'
+            }
+        )
+        self.assertEqual(response.status_code, 302)
+        assert models.Message.objects.filter(
+            from_user=self.user,
+            to_user=new_friend,
+            subject='Friendship Request',
+            body='Be my friend!'
+        ).exists()
+        assert friends.FriendshipRequest.objects.filter(
+            from_user=self.user,
+            to_user=new_friend,
+            accepted=False
+        )
+
+    def test_remove_friend(self):
+        ''' Tests that we can kill a friendship '''
+        response = self.client.get(
+            reverse('remove-friend', args=[self.friend.pk])
+        )
+        self.assertEqual(response.status_code, 302)
+        assert not self.user.friendship.friends.all()
