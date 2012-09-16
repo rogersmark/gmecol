@@ -98,3 +98,28 @@ def rate_game(request, game_id):
         json.dumps({'status': 1}),
         mimetype='application/json'
     )
+
+
+@login_required
+def toggle_trade_and_sale(request, game_id, trade=True):
+    ''' Toggles the trade status of a game that exists in a user's collection
+    '''
+    game = get_object_or_404(
+        models.UserGame,
+        game__pk=game_id,
+        user=request.user.userprofile
+    )
+    if trade:
+        game.for_trade = False if game.for_trade else True
+    else:
+        game.for_sale = False if game.for_sale else True
+    game.save()
+    json_data = json.dumps({
+        'status': True,
+        'for_trade': game.for_trade,
+        'for_sale': game.for_sale
+    })
+    return HttpResponse(
+        json_data,
+        mimetype='application/json'
+    )

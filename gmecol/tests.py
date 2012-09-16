@@ -171,6 +171,50 @@ class TestGmeColCollectionViews(TestCase):
         )
         self.assertEqual(ug.rating, None)
 
+    def test_toggle_game_trade(self):
+        ''' Tests the toggle abilities for for_trade on a game in a user's
+        collection
+        '''
+        self._add_game_to_profile()
+        # Toggle to True
+        response = self.client.get(reverse('trade-game', args=[self.quake.pk]))
+        self.assertEqual(response.status_code, 200)
+        ug = models.UserGame.objects.get(
+            user=self.user.userprofile,
+            game__pk=self.quake.pk
+        )
+        self.assertTrue(ug.for_trade)
+
+        # Toggle to False
+        response = self.client.get(reverse('trade-game', args=[self.quake.pk]))
+        ug = models.UserGame.objects.get(
+            user=self.user.userprofile,
+            game__pk=self.quake.pk
+        )
+        self.assertFalse(ug.for_trade)
+
+    def test_toggle_game_sell(self):
+        ''' Tests the toggle abilities for for_sale on a game in user's
+        collection
+        '''
+        self._add_game_to_profile()
+        # Toggle to True
+        response = self.client.get(reverse('sell-game', args=[self.quake.pk]))
+        self.assertEqual(response.status_code, 200)
+        ug = models.UserGame.objects.get(
+            user=self.user.userprofile,
+            game__pk=self.quake.pk
+        )
+        self.assertTrue(ug.for_sale)
+
+        # Toggle to False
+        response = self.client.get(reverse('sell-game', args=[self.quake.pk]))
+        ug = models.UserGame.objects.get(
+            user=self.user.userprofile,
+            game__pk=self.quake.pk
+        )
+        self.assertFalse(ug.for_sale)
+
     def test_view_collection_by_genre(self):
         ''' Test viewing collection of games grouped by genre '''
         self._add_game_to_profile()

@@ -20,6 +20,10 @@ urlpatterns += patterns('gmecol.views.collection',
         'view_collection_by_platform', name='collection-by-platform'),
     url('^collection/rate/(?P<game_id>\d+)/$',
         'rate_game', name='rate-game'),
+    url('^collection/trade/(?P<game_id>\d+)/$',
+        'toggle_trade_and_sale', name='trade-game'),
+    url('^collection/sell/(?P<game_id>\d+)/$',
+        'toggle_trade_and_sale', {'trade': False}, name='sell-game'),
 )
 
 # game wishlist

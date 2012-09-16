@@ -41,11 +41,10 @@
                     </button>
                     <ul class="dropdown-menu">
                         <!-- dropdown menu links -->
-                        <li><a href="#">Rate</a></li>
                         <li><div class="rateit" data-rateit-value="{{ user_game.rating }}" data-rateit-ispreset="{% if user_game.rating %}true{% else %}false{% endif %}" id="game-rating"></div></li>
                         <li class="divider"></li>
-                        <li>Up for Trade: <span id="for-trade" style="margin-left: 10px;" align="center" class="badge badge{% if user_game.for_trade %}-success">True{% else %}-warning">False{% endif %}</span></li>
-                        <li>For Sale: <span id="for-sale" style="margin-left: 10px;" align="center" class="badge badge{% if user_game.for_trade %}-success">True{% else %}-warning">False{% endif %}</span></li>
+                        <li><a id='trade-game'>For Trade: {% if user_game.for_trade %}<i id="trade-icon" class="icon-ok"></i>{% else %}<i id="trade-icon" class="icon-off"></i>{% endif %}</a></li>
+                        <li><a id='sell-game'>For Sale: {% if user_game.for_sale %}<i id="sell-icon" class="icon-ok"></i>{% else %}<i id="sell-icon" class="icon-off"></i>{% endif %}</a></li>
 
                 {% endif %}
                 
@@ -79,6 +78,32 @@
                     type: "GET",
                     url: "{% url rate-game game.pk %}",
                     data: { score: 0 }
+                });
+            });
+            $('#trade-game').click(function(data){
+                $.ajax({
+                    type: "GET",
+                    url: "{% url trade-game game.pk %}",
+                    success: function(data){
+                        if(data.for_trade){
+                            $('#trade-icon').attr('class', 'icon-ok');
+                        } else {
+                            $('#trade-icon').attr('class', 'icon-off');
+                        }
+                    }
+                });
+            });
+            $('#sell-game').click(function(data){
+                $.ajax({
+                    type: "GET",
+                    url: "{% url sell-game game.pk %}",
+                    success: function(data){
+                        if(data.for_sale){
+                            $('#sell-icon').attr('class', 'icon-ok');
+                        } else {
+                            $('#sell-icon').attr('class', 'icon-off');
+                        }
+                    }
                 });
             });
         });
