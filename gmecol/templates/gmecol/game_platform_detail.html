@@ -33,7 +33,7 @@
                         <li><a href="#">Rate</a></li>
                         <li><div class="rateit" data-rateit-value="{{ user_game.rating }}" data-rateit-ispreset="{% if user_game.rating %}true{% else %}false{% endif %}" id="game-rating"></div></li>
                         <li class="divider"></li>
-                        <li><a href="{% url add-game-to-collection game.pk %}">Add to Collection</a></li>
+                        <li><a href="{% url "add-game-to-collection" game.pk %}">Add to Collection</a></li>
                 {% else %}
                     <button class="btn btn-large" disabled="disabled">In Collection</button>
                     <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
@@ -52,10 +52,10 @@
                 
                 {% if request.user.is_authenticated %}
                     <p>
-                    <a href="{% url add-game-to-wish game.pk %}"><button class="btn btn-large btn-primary add-wish">Add to WishList</button></a>
+                    <a href="{% url "add-game-to-wish" game.pk %}"><button class="btn btn-large btn-primary add-wish">Add to WishList</button></a>
                     </p>
                     <p>
-                        <a href="{% url add-game-to-collection game.pk %}"><button class="btn btn-large btn-primary add-collect">Add to Collection</button></a>
+                        <a href="{% url "add-game-to-collection" game.pk %}"><button class="btn btn-large btn-primary add-collect">Add to Collection</button></a>
                     </p>
                 {% endif %}
 
@@ -69,21 +69,21 @@
             $('#game-rating').bind('rated', function(event, value){
                 $.ajax({
                     type: "GET",
-                    url: "{% url rate-game game.pk %}",
+                    url: '{% url "rate-game" game.pk %}',
                     data: { score: value }
                 });
             });
             $('#game-rating').bind('reset', function(){
                 $.ajax({
                     type: "GET",
-                    url: "{% url rate-game game.pk %}",
+                    url: '{% url "rate-game" game.pk %}',
                     data: { score: 0 }
                 });
             });
             $('#trade-game').click(function(data){
                 $.ajax({
                     type: "GET",
-                    url: "{% url trade-game game.pk %}",
+                    url: '{% url "trade-game" game.pk %}',
                     success: function(data){
                         if(data.for_trade){
                             $('#trade-icon').attr('class', 'icon-ok');
@@ -96,7 +96,7 @@
             $('#sell-game').click(function(data){
                 $.ajax({
                     type: "GET",
-                    url: "{% url sell-game game.pk %}",
+                    url: '{% url "sell-game" game.pk %}',
                     success: function(data){
                         if(data.for_sale){
                             $('#sell-icon').attr('class', 'icon-ok');

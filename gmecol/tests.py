@@ -3,6 +3,7 @@ from mock import Mock, patch
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.test.utils import override_settings
 
 from friends import models as friends
 
@@ -18,8 +19,20 @@ class MockGBResponse(object):
         self.platforms = platforms
         self.genres = genres
 
+TEST_CACHES = CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
 
-class TestMainGmeColViews(TestCase):
+@override_settings(CACHES=TEST_CACHES)
+class BaseCase(TestCase):
+    pass
+
+
+class TestMainGmeColViews(BaseCase):
+
+    fixtures = ['all_data.json']
 
     def test_index(self):
         ''' Test the index view '''
@@ -69,7 +82,9 @@ class TestMainGmeColViews(TestCase):
         self.assertEqual(response.context['game'].name, 'Quake')
 
 
-class TestGmeColCollectionViews(TestCase):
+class TestGmeColCollectionViews(BaseCase):
+
+    fixtures = ['all_data.json']
 
     def setUp(self):
         super(TestGmeColCollectionViews, self).setUp()
@@ -262,7 +277,9 @@ class TestGmeColCollectionViews(TestCase):
         assert all([game.wish for game in response.context['games']])
 
 
-class TestGmeColProfileViews(TestCase):
+class TestGmeColProfileViews(BaseCase):
+
+    fixtures = ['all_data.json']
 
     def setUp(self):
         super(TestGmeColProfileViews, self).setUp()
@@ -284,7 +301,9 @@ class TestGmeColProfileViews(TestCase):
         self.assertEqual(response.context['user'], user)
 
 
-class TestGmeColMessagingViews(TestCase):
+class TestGmeColMessagingViews(BaseCase):
+
+    fixtures = ['all_data.json']
     ''' Test messaging functionality '''
 
     def setUp(self):
@@ -371,7 +390,9 @@ class TestGmeColMessagingViews(TestCase):
         self.assertEqual(response.context['messages'].count(), 1)
 
 
-class TestGmeColFriendViews(TestCase):
+class TestGmeColFriendViews(BaseCase):
+
+    fixtures = ['all_data.json']
 
     def setUp(self):
         super(TestGmeColFriendViews, self).setUp()

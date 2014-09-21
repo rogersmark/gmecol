@@ -96,7 +96,7 @@ def rate_game(request, game_id):
     game.save()
     return HttpResponse(
         json.dumps({'status': 1}),
-        mimetype='application/json'
+        content_type='application/json'
     )
 
 
@@ -121,5 +121,5 @@ def toggle_trade_and_sale(request, game_id, trade=True):
     })
     return HttpResponse(
         json_data,
-        mimetype='application/json'
+        content_type='application/json'
     )

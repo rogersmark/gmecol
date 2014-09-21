@@ -8,9 +8,9 @@
         <ul>
             {% for genre in genres %}
                 {% if wish %}
-                    <li><a href="{% url wish-by-genre genre.pk %}">{{ genre.name }}</a></li>
+                    <li><a href="{% url "wish-by-genre" genre.pk %}">{{ genre.name }}</a></li>
                 {% else %}
-                    <li><a href="{% url collection-by-genre genre.pk %}">{{ genre.name }}</a></li>
+                    <li><a href="{% url "collection-by-genre" genre.pk %}">{{ genre.name }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>
@@ -21,9 +21,9 @@
         <ul>
             {% for platform in platforms %}
                 {% if wish %}
-                    <li><a href="{% url wish-by-platform platform.pk %}">{{ platform.name }}</a></li>
+                    <li><a href="{% url "wish-by-platform" platform.pk %}">{{ platform.name }}</a></li>
                 {% else %}
-                    <li><a href="{% url collection-by-platform platform.pk %}">{{ platform.name }}</a></li>
+                    <li><a href="{% url "collection-by-platform" platform.pk %}">{{ platform.name }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>

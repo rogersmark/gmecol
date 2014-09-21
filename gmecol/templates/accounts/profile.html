@@ -6,7 +6,7 @@
             {% if user in request.user.friendship.friends.all %}
                 <button class="btn" disabled="disabled">Friends!</button>
             {% else %}
-            <button class="btn btn-primary" data-toggle="modal" data-remote="{% url add-friend user.pk %}" data-target="#friend-modal">Add Friend</button>
+            <button class="btn btn-primary" data-toggle="modal" data-remote="{% url "add-friend" user.pk %}" data-target="#friend-modal">Add Friend</button>
             {% endif  %}
         {% endif %}
     </p>
@@ -17,7 +17,7 @@
             {% if user.friendship.friends.all %}
                 <ul>
                     {% for friend in user.friendship.friends.all %}
-                        <li><a href="{% url profile friend.user.pk %}">{{ friend.user.username }}</a></li>
+                        <li><a href="{% url "profile" friend.user.pk %}">{{ friend.user.username }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}

@@ -1,156 +1,129 @@
 # -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+from django.conf import settings
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Platform'
-        db.create_table('gmecol_platform', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=64)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50)),
-        ))
-        db.send_create_signal('gmecol', ['Platform'])
+    dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+    ]
 
-        # Adding model 'Game'
-        db.create_table('gmecol_game', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=50)),
-            ('platform', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['gmecol.Platform'])),
-        ))
-        db.send_create_signal('gmecol', ['Game'])
-
-        # Adding model 'UserGame'
-        db.create_table('gmecol_usergame', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('game', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['gmecol.Game'])),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['gmecol.UserProfile'])),
-            ('rating', self.gf('django.db.models.fields.IntegerField')(default=3)),
-            ('for_trade', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('for_sale', self.gf('django.db.models.fields.BooleanField')(default=False)),
-        ))
-        db.send_create_signal('gmecol', ['UserGame'])
-
-        # Adding model 'UserProfile'
-        db.create_table('gmecol_userprofile', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('created', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('modified', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
-        ))
-        db.send_create_signal('gmecol', ['UserProfile'])
-
-        # Adding M2M table for field platforms on 'UserProfile'
-        db.create_table('gmecol_userprofile_platforms', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('userprofile', models.ForeignKey(orm['gmecol.userprofile'], null=False)),
-            ('platform', models.ForeignKey(orm['gmecol.platform'], null=False))
-        ))
-        db.create_unique('gmecol_userprofile_platforms', ['userprofile_id', 'platform_id'])
-
-
-    def backwards(self, orm):
-        # Deleting model 'Platform'
-        db.delete_table('gmecol_platform')
-
-        # Deleting model 'Game'
-        db.delete_table('gmecol_game')
-
-        # Deleting model 'UserGame'
-        db.delete_table('gmecol_usergame')
-
-        # Deleting model 'UserProfile'
-        db.delete_table('gmecol_userprofile')
-
-        # Removing M2M table for field platforms on 'UserProfile'
-        db.delete_table('gmecol_userprofile_platforms')
-
-
-    models = {
-        'auth.group': {
-            'Meta': {'object_name': 'Group'},
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
-            'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'})
-        },
-        'auth.permission': {
-            'Meta': {'ordering': "('content_type__app_label', 'content_type__model', 'codename')", 'unique_together': "(('content_type', 'codename'),)", 'object_name': 'Permission'},
-            'codename': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'content_type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['contenttypes.ContentType']"}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
-        },
-        'auth.user': {
-            'Meta': {'object_name': 'User'},
-            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
-            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
-            'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
-            'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'symmetrical': 'False', 'blank': 'True'}),
-            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
-        },
-        'contenttypes.contenttype': {
-            'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
-            'app_label': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
-        },
-        'gmecol.game': {
-            'Meta': {'object_name': 'Game'},
-            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
-            'platform': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['gmecol.Platform']"}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50'})
-        },
-        'gmecol.platform': {
-            'Meta': {'object_name': 'Platform'},
-            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '64'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '50'})
-        },
-        'gmecol.usergame': {
-            'Meta': {'object_name': 'UserGame'},
-            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'for_sale': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'for_trade': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'game': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['gmecol.Game']"}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'rating': ('django.db.models.fields.IntegerField', [], {'default': '3'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['gmecol.UserProfile']"})
-        },
-        'gmecol.userprofile': {
-            'Meta': {'object_name': 'UserProfile'},
-            'created': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'games': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['gmecol.Game']", 'through': "orm['gmecol.UserGame']", 'symmetrical': 'False'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'modified': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
-            'platforms': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['gmecol.Platform']", 'symmetrical': 'False'}),
-            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['auth.User']", 'unique': 'True'})
-        }
-    }
-
-    complete_apps = ['gmecol']
+    operations = [
+        migrations.CreateModel(
+            name='Game',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('modified', models.DateTimeField(auto_now=True)),
+                ('name', models.CharField(max_length=128)),
+                ('slug', models.SlugField(unique=True)),
+                ('image_url', models.TextField()),
+                ('remote_id', models.IntegerField()),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Genre',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('modified', models.DateTimeField(auto_now=True)),
+                ('name', models.CharField(max_length=64)),
+                ('slug', models.SlugField(unique=True)),
+                ('remote_id', models.IntegerField()),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Message',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('modified', models.DateTimeField(auto_now=True)),
+                ('subject', models.CharField(max_length=256)),
+                ('body', models.TextField()),
+                ('read', models.BooleanField(default=False)),
+                ('deleted', models.BooleanField(default=False)),
+                ('from_user', models.ForeignKey(related_name=b'from_user', to=settings.AUTH_USER_MODEL)),
+                ('to_user', models.ForeignKey(related_name=b'to_user', to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'ordering': ('-created',),
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Platform',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('modified', models.DateTimeField(auto_now=True)),
+                ('name', models.CharField(max_length=64)),
+                ('slug', models.SlugField(unique=True)),
+                ('image_url', models.TextField()),
+                ('remote_id', models.IntegerField()),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='UserGame',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('modified', models.DateTimeField(auto_now=True)),
+                ('rating', models.DecimalField(null=True, max_digits=2, decimal_places=1)),
+                ('for_trade', models.BooleanField(default=False)),
+                ('for_sale', models.BooleanField(default=False)),
+                ('wish', models.BooleanField(default=False)),
+                ('game', models.ForeignKey(to='gmecol.Game')),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='UserProfile',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created', models.DateTimeField(auto_now_add=True)),
+                ('modified', models.DateTimeField(auto_now=True)),
+                ('games', models.ManyToManyField(to='gmecol.Game', through='gmecol.UserGame')),
+                ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='usergame',
+            name='user',
+            field=models.ForeignKey(to='gmecol.UserProfile'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='game',
+            name='genres',
+            field=models.ManyToManyField(to='gmecol.Genre'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
+            model_name='game',
+            name='platform',
+            field=models.ForeignKey(to='gmecol.Platform'),
+            preserve_default=True,
+        ),
+    ]

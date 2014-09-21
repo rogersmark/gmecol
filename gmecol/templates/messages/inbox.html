@@ -3,10 +3,10 @@
 {% block title %} - Messages {% endblock %}
 {% block content %}
     <ul id="mail-tabs" class="nav nav-tabs">
-        <li><a href="{% url message-list %}">Inbox</a></li>
-        <li><a href="{% url message-list %}?folder=sent">Sent</a></li>
-        <li><a href="{% url message-list %}?folder=deleted">Deleted</a></li>
-        <li><button class="btn btn-primary btn-mini" data-toggle="modal" data-remote="{% url send-message %}" data-target="#send-modal">Message Friends!</button></a></li>
+        <li><a href="{% url "message-list" %}">Inbox</a></li>
+        <li><a href="{% url "message-list" %}?folder=sent">Sent</a></li>
+        <li><a href="{% url "message-list" %}?folder=deleted">Deleted</a></li>
+        <li><button class="btn btn-primary btn-mini" data-toggle="modal" data-remote="{% url "send-message" %}" data-target="#send-modal">Message Friends!</button></a></li>
     </ul>
     <div class="tab-content" id="mail-tab-content">
         <div class="accordion" id="mail-accordion">

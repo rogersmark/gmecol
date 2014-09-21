@@ -6,7 +6,7 @@
     {% for game in games %}
         <div class="span4">
             <h2>{{ game.game.name|truncatechars:15 }}</h2>
-            <p><a href="{% url game-platform-detail game.game.remote_id game.game.platform.remote_id %}"><img src="{{ game.game.image_url}}" /></a></p>
+            <p><a href="{% url "game-platform-detail" game.game.remote_id game.game.platform.remote_id %}"><img src="{{ game.game.image_url}}" /></a></p>
             <ul>
                 {% for genre in game.game.genres.all %}
                     <li>{{ genre.name }}</li>
