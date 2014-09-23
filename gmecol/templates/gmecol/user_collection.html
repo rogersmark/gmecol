@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% block stage_header %}gmeCol: {% if wish %}Wishlist{% else %}Game Collection{% endif %}{% endblock %}
+{% block stage_header %}gmeCol: {% if wish %}Your Wishlist{% else %}Your Collection{% endif %}{% endblock %}
 {% block stage_intro %}
 {% endblock %}
 {% block content %}
-    <div class="span5">
+    <div class="col-md-5">
         <h3>Genres</h3>
         <ul>
             {% for genre in genres %}
@@ -16,7 +16,7 @@
         </ul>
 
     </div>
-    <div class="span5">
+    <div class="col-md-5">
         <h3>Platforms</h3>
         <ul>
             {% for platform in platforms %}

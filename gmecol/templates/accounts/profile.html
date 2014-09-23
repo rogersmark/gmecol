@@ -12,7 +12,7 @@
     </p>
 {% endblock %}
 {% block content %}
-    <div class="span5">
+    <div class="col-md-5">
         <h4>Friends</h2>
             {% if user.friendship.friends.all %}
                 <ul>
@@ -24,7 +24,7 @@
                 <p>Go make some friends!</p>
             {% endif %}
     </div>
-    <div class="span5">
+    <div class="col-md-5">
         <h4>Platforms</h4>
             <ul>
                 {% for platform in user.userprofile.platforms %}

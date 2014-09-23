@@ -6,10 +6,10 @@
 {% endblock %}
 {% block content %}
     {% for game in games %}
-        <div class="span4">
+        <div class="col-md-4">
             <h2>{{ game.platform.name|truncatechars:15 }}</h2>
             <p><a href="{% url "game-platform-detail" game.remote_id game.platform.remote_id %}"><img src="{{ game.platform.image_url}}" /></a></p>
         </div>
-        {% if forloop.counter|divisibleby:3 and not forloop.last %}</div><div class="row-fluid">{% endif %}
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}</div><div class="row">{% endif %}
     {% endfor %}
 {% endblock %}
