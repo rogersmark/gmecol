@@ -4,23 +4,7 @@
 <h3>Platform: {{ game.platform.name }}</h3>
 {% endblock %}
 {% block content %}
-    <div class="col-md-1">
-        <p><img class="img-rounded" src="{{ game.image_url }}" /></p>
-    </div>
-    <div class="col-md-5">
-        <ul>
-            <li>Title: {{ game.name }}</li>
-            <li>Genres:</li>
-                <ul>
-                    {% for genre in game.genres.all %}
-                        <li>{{ genre.name }}</li>
-                    {% endfor %}
-                </ul>
-            <li>Platform: {{ game.platform.name }}</li>
-        </ul>
-    </div>
     <div class="col-md-3">
-        <div class="btn-group">
             {% if user_game %}
 
                 {% if user_game.wish %}
@@ -59,6 +43,22 @@
                 {% endif %}
 
             {% endif %}
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <p><img class="img-rounded" src="{{ game.screen_image_url }}" /></p>
+        </div>
+        <div class="row">
+            <p class="lead">{{ game.deck }}</p>
+        </div>
+        <div class="row">
+            <p>
+                Genres: {% for genre in game.genres.all %} {{ genre.name }} {% if not forloop.last %},{% endif %}{% endfor %}
+                <br>
+                Platform: {{ game.platform.name }}
+                <br>
+                Release Date: {{ game.release_date }}
+            </p>
         </div>
     </div>
 {% endblock %}

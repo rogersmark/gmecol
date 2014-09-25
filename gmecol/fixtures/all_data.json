@@ -1592,7 +1592,14 @@
             "remote_id": 8015, 
             "modified": "2012-09-01T00:14:04.846Z", 
             "platform": 108, 
-            "image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "icon_image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "med_image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "screen_image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "sm_image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "super_image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "thumb_image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "tiny_image_url": "http://media.giantbomb.com/uploads/1/13686/915551-dfvgbhnm_icon.jpg", 
+            "release_date": "2012-09-01",
             "slug": "quake-zeebo",
             "genres": [1, 2]
         }

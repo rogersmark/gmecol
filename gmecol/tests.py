@@ -14,16 +14,28 @@ class MockGBResponse(object):
 
     def __init__(self, id, image, name, platforms, genres):
         self.id = id
-        self.image = image
         self.name = name
         self.platforms = platforms
         self.genres = genres
+        self.deck = 'Sample text'
+        self.original_release_date = '2012-01-01 00:00:00'
+        self.image = Mock(
+            icon='icon',
+            medium='med',
+            small='sm',
+            super='super',
+            screen='screen',
+            thumb='thumb',
+            tiny='tiny'
+        )
+
 
 TEST_CACHES = CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
+
 
 @override_settings(CACHES=TEST_CACHES)
 class BaseCase(TestCase):

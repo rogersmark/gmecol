@@ -5,13 +5,8 @@
 {% block content %}
     {% for game in games %}
         <div class="col-md-4">
-            <p><a href="{% url "game-platform-detail" game.game.remote_id game.game.platform.remote_id %}"><img class="img-rounded" src="{{ game.game.image_url}}" /></a></p>
+            <p><a href="{% url "game-platform-detail" game.game.remote_id game.game.platform.remote_id %}"><img class="img-rounded" src="{{ game.game.icon_image_url }}" /></a></p>
             <h4>{{ game.game.name }}</h4>
-            <ul>
-                {% for genre in game.game.genres.all %}
-                    <li>{{ genre.name }}</li>
-                {% endfor %}
-            </ul>
         </div>
         {% if forloop.counter|divisibleby:3 and not forloop.last %}</div><div class="row">{% endif %}
     {% endfor %}

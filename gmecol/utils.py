@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from giantbomb import giantbomb
 
 from django.conf import settings
@@ -73,11 +75,21 @@ def giant_bomb_game_detail(remote_id):
         )
         for platform in game_platforms:
             new_game, created = models.Game.objects.get_or_create(
+                deck=game.deck,
                 platform=platform,
                 remote_id=game.id,
                 slug=slugify('%s-%s' % (game.name, platform.name)),
-                image_url=game.image.icon,
-                name=game.name
+                icon_image_url=game.image.icon,
+                med_image_url=game.image.medium,
+                screen_image_url=game.image.screen,
+                sm_image_url=game.image.small,
+                super_image_url=game.image.super,
+                thumb_image_url=game.image.thumb,
+                tiny_image_url=game.image.tiny,
+                name=game.name,
+                release_date=datetime.strptime(
+                    game.original_release_date, '%Y-%m-%d %H:%M:%S'
+                ).date()
             )
             [new_game.genres.add(x) for x in genres]
 
