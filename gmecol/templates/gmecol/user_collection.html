@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load append_query %}
 {% block stage_header %}gmeCol: {% if wish %}Your Wishlist{% else %}Your Collection{% endif %}{% endblock %}
 {% block stage_intro %}
 {% endblock %}
@@ -42,4 +43,23 @@
             {% if forloop.counter|divisibleby:3 and not forloop.last %}</div><div class="row">{% endif %}
         {% endfor %}
     </div>
+    {% if is_paginated %}
+        <div class="row">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="{% append_to_get page=page_obj.previous_page_number %}">&laquo;</a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                {% endif %}
+                {% for page_num in page_obj.paginator.page_range %}
+                <li {% ifequal page_num page_obj.number %}class="active"{% endifequal %}><a href="{% append_to_get page=page_num %}">{{ page_num }}</a></li>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="{% append_to_get page=page_obj.next_page_number %}">&raquo;</a></li>
+                {% else %}
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
 {% endblock %}

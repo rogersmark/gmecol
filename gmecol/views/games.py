@@ -10,6 +10,7 @@ class GameListView(ListView):
     template_name = 'gmecol/user_collection.html'
     context_object_name = 'games'
     wish = False
+    paginate_by = 9
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
