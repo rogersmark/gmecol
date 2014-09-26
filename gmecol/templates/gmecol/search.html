@@ -3,22 +3,21 @@
 {% block title %} - Search {% endblock %}
 {% block stage_header %}gmeCol: Search{% endblock %}
 {% block stage_intro %}
-    <form action='' method='get' class="form-search">
-        {{ form.as_p }}
-        <button tye="submit" class="btn btn-large btn-primary">Search</button>
+    <form action='' method='get' class="form-horizontal" role="form">
+        <div class="form-inline">
+            <label for="id_name">Search Title: </label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
     </form>
 {% endblock %}
 {% block content %}
     {% for game in games %}
         <div class="col-md-4">
-            <h2>{{ game.name|truncatechars:15 }}</h2>
-            <p><a href="{% url "game-detail" game.id %}"><img class="img-rounded" src="{{ game.image.icon_url }}" /></a></p>
-            <p>{{ game.name }}</p>
-            <ul>
-                {% for platform in game.platforms %}
-                    <li>{{ platform.name }}</li>
-                {% endfor %}
-            </ul>
+            <p><a href="{% url "game-detail" game.id %}"><img class="img-rounded" {% if game.image.icon_url %}src="{{ game.image.icon_url }}" {% else %} data-src="holder.js/80x80/text:No Image" {% endif %}/></a></p>
+            <h4><a href="{% url "game-detail" game.id %}">{{ game.name }}</a></h4>
         </div>
         {% if forloop.counter|divisibleby:3 and not forloop.last %}</div><div class="row">{% endif %}
     {% endfor %}

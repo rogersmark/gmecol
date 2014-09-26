@@ -10,7 +10,7 @@ class SearchGamesForm(forms.Form):
     ''' Search the Giant Bomb Games Database for Games '''
 
     name = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'input-medium search-query'}
+        attrs={'class': 'form-control', 'type': 'search'}
     ))
 
 
@@ -61,3 +61,17 @@ class CollectionFilterForm(forms.Form):
                 'game__platform__pk', flat=True
             )
         )
+
+
+class CollectionSortForm(forms.Form):
+
+    CHOICES = (
+        ('game__name', 'A-Z'),
+        ('-game__name', 'Z-A'),
+        ('rating', 'Rating')
+    )
+
+    sort_by = forms.ChoiceField(
+        choices=CHOICES, required=False,
+        widget=forms.Select(attrs={'class': 'form-control'}),
+    )

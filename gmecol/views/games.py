@@ -16,15 +16,20 @@ class GameListView(ListView):
         return super(GameListView, self).dispatch(*args, **kwargs)
 
     def _populate_form_values(self):
-        self.form = forms.CollectionFilterForm(
+        self.filter_form = forms.CollectionFilterForm(
             user=self.request.user, wish=self.wish, data=self.request.GET
         )
-        self.data = {'genre': None, 'platform': None}
-        valid_form = self.form.is_valid()
-        if valid_form:
-            self.data = self.form.cleaned_data
+        self.sort_form = forms.CollectionSortForm(self.request.GET)
+        self.data = {'genre': None, 'platform': None, 'sort': None}
+        valid_filter_form = self.filter_form.is_valid()
+        valid_sort_form = self.sort_form.is_valid()
+        if valid_filter_form:
+            self.data = self.filter_form.cleaned_data
 
-        return valid_form
+        if valid_sort_form:
+            self.data.update(self.sort_form.cleaned_data)
+
+        return valid_filter_form or valid_sort_form
 
     def get_queryset(self):
         # Base queryset
@@ -33,12 +38,14 @@ class GameListView(ListView):
         )
 
         if self._populate_form_values():
-            self.data = self.form.cleaned_data
             if self.data.get('genre'):
                 queryset = queryset.filter(game__genres=self.data['genre'])
 
             if self.data.get('platform'):
                 queryset = queryset.filter(game__platform=self.data['platform'])
+
+            if self.data.get('sort_by'):
+                queryset = queryset.order_by(self.data.get('sort_by'))
 
         return queryset
 
@@ -46,7 +53,8 @@ class GameListView(ListView):
         context = super(GameListView, self).get_context_data(**kwargs)
         self._populate_form_values()
         context.update({
-            'form': self.form,
+            'filter_form': self.filter_form,
+            'sort_form': self.sort_form,
             'wish': self.wish,
             'genre': self.data['genre'],
             'platform': self.data['platform']

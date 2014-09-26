@@ -63,14 +63,12 @@ class TestMainGmeColViews(BaseCase):
 
     @patch('giantbomb.giantbomb.Api.getGame')
     def test_game_detail(self, giant_mock):
-        genre_mock = Mock()
-        genre_mock.id = 1
-        genre_mock.name = 'test'
+        genre_mock = {'id': 1, 'name': 'test'}
         game_mock = MockGBResponse(
             id=1,
             image=Mock(icon=''),
             name='Test',
-            platforms=[Mock(id=1)],
+            platforms=[dict(id=1)],
             genres=[genre_mock, ]
         )
         giant_mock.return_value = game_mock

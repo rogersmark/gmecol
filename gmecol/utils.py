@@ -64,14 +64,14 @@ def giant_bomb_game_detail(remote_id):
         genres = []
         for genre in game.genres:
             new_genre, created = models.Genre.objects.get_or_create(
-                name=genre.name,
-                slug=slugify(genre.name),
-                remote_id=genre.id
+                name=genre.get('name'),
+                slug=slugify(genre.get('name')),
+                remote_id=genre.get('id'),
             )
             genres.append(new_genre)
 
         game_platforms = models.Platform.objects.filter(
-            remote_id__in=[x.id for x in game.platforms]
+            remote_id__in=[x.get('id') for x in game.platforms]
         )
         for platform in game_platforms:
             release_date = None
@@ -84,13 +84,13 @@ def giant_bomb_game_detail(remote_id):
                 platform=platform,
                 remote_id=game.id,
                 slug=slugify('%s-%s' % (game.name, platform.name)),
-                icon_image_url=game.image.icon,
-                med_image_url=game.image.medium,
-                screen_image_url=game.image.screen,
-                sm_image_url=game.image.small,
-                super_image_url=game.image.super,
-                thumb_image_url=game.image.thumb,
-                tiny_image_url=game.image.tiny,
+                icon_image_url=game.image.icon if game.image else '',
+                med_image_url=game.image.medium if game.image else '',
+                screen_image_url=game.image.screen if game.image else '',
+                sm_image_url=game.image.small if game.image else '',
+                super_image_url=game.image.super if game.image else '',
+                thumb_image_url=game.image.thumb if game.image else '',
+                tiny_image_url=game.image.tiny if game.image else '',
                 name=game.name,
                 release_date=release_date,
             )
