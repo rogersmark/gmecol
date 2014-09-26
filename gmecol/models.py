@@ -54,7 +54,7 @@ class Game(BaseModel):
     super_image_url = models.CharField(max_length="256", blank=True)
     thumb_image_url = models.CharField(max_length="256", blank=True)
     tiny_image_url = models.CharField(max_length="256", blank=True)
-    release_date = models.DateField()
+    release_date = models.DateField(null=True)
     remote_id = models.IntegerField()
     genres = models.ManyToManyField('Genre')
 

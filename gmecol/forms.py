@@ -34,3 +34,30 @@ class FriendshipRequestForm(forms.Form):
     from_user = forms.ModelChoiceField(queryset=User.objects.none())
     to_user = forms.ModelChoiceField(queryset=User.objects.all())
     message = forms.CharField(widget=forms.TextInput)
+
+
+class CollectionFilterForm(forms.Form):
+
+    genre = forms.ModelChoiceField(
+        queryset=models.Genre.objects.none(),
+        widget=forms.Select(attrs={'class': 'form-control'}),
+        required=False,
+    )
+    platform = forms.ModelChoiceField(
+        queryset=models.Platform.objects.none(),
+        widget=forms.Select(attrs={'class': 'form-control'}),
+        required=False,
+    )
+
+    def __init__(self, user, wish=False, *args, **kwargs):
+        super(CollectionFilterForm, self).__init__(*args, **kwargs)
+        self.fields['genre'].queryset = models.Genre.objects.filter(
+            pk__in=user.userprofile.usergame_set.filter(wish=wish).values_list(
+                'game__genres__pk', flat=True
+            )
+        )
+        self.fields['platform'].queryset = models.Platform.objects.filter(
+            pk__in=user.userprofile.usergame_set.filter(wish=wish).values_list(
+                'game__platform__pk', flat=True
+            )
+        )

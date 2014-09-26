@@ -144,18 +144,20 @@ class TestGmeColCollectionViews(BaseCase):
         self._add_game_to_profile()
         response = self.client.get(reverse('view-collection'))
         self.assertEqual(response.status_code, 200)
-        assert self.quake.platform in response.context['platforms']
-        for genre in self.quake.genres.all():
-            assert genre in response.context['genres']
+        self.assertEqual(
+            self.user.userprofile.usergame_set.get(game=self.quake).pk,
+            response.context['games'][0].pk
+        )
 
     def test_view_wishlist(self):
         ''' Test for viewing a user's wishlist '''
         self._add_game_to_profile(True)
         response = self.client.get(reverse('wishlist'))
         self.assertEqual(response.status_code, 200)
-        assert self.quake.platform in response.context['platforms']
-        for genre in self.quake.genres.all():
-            assert genre in response.context['genres']
+        self.assertEqual(
+            self.user.userprofile.usergame_set.get(game=self.quake, wish=True).pk,
+            response.context['games'][0].pk
+        )
 
     def test_view_game_in_collection(self):
         ''' Test viewing a game that's in your collection. Identical to
@@ -246,9 +248,9 @@ class TestGmeColCollectionViews(BaseCase):
         ''' Test viewing collection of games grouped by genre '''
         self._add_game_to_profile()
         genre = self.quake.genres.all()[0]
-        response = self.client.get(reverse('collection-by-genre',
-            args=[genre.pk]
-        ))
+        response = self.client.get(reverse('view-collection'), {
+            'genre': genre.pk
+        })
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['genre'], genre)
         assert self.quake in [game.game for game in response.context['games']]
@@ -258,9 +260,9 @@ class TestGmeColCollectionViews(BaseCase):
         ''' Test viewing wishlist of games grouped by genre '''
         self._add_game_to_profile(True)
         genre = self.quake.genres.all()[0]
-        response = self.client.get(reverse('wish-by-genre',
-            args=[genre.pk]
-        ))
+        response = self.client.get(reverse('wishlist'), {
+            'genre': genre.pk
+        })
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['genre'], genre)
         assert self.quake in [game.game for game in response.context['games']]
@@ -269,9 +271,9 @@ class TestGmeColCollectionViews(BaseCase):
     def test_view_collection_by_platform(self):
         ''' Test viewing collection of games grouped by platform '''
         self._add_game_to_profile()
-        response = self.client.get(reverse('collection-by-platform',
-            args=[self.quake.platform.pk]
-        ))
+        response = self.client.get(reverse('view-collection'), {
+            'platform': self.quake.platform.pk
+        })
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['platform'], self.quake.platform)
         assert self.quake in [game.game for game in response.context['games']]
@@ -280,9 +282,9 @@ class TestGmeColCollectionViews(BaseCase):
     def test_view_wishlist_by_platform(self):
         ''' Test viewing wishlist of games grouped by platform '''
         self._add_game_to_profile(True)
-        response = self.client.get(reverse('wish-by-platform',
-            args=[self.quake.platform.pk]
-        ))
+        response = self.client.get(reverse('wishlist'), {
+            'platform': self.quake.platform.pk
+        })
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['platform'], self.quake.platform)
         assert self.quake in [game.game for game in response.context['games']]

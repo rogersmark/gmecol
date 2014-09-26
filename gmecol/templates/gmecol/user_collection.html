@@ -3,30 +3,30 @@
 {% block stage_intro %}
 {% endblock %}
 {% block content %}
-    <div class="col-md-5">
-        <h3>Genres</h3>
-        <ul>
-            {% for genre in genres %}
-                {% if wish %}
-                    <li><a href="{% url "wish-by-genre" genre.pk %}">{{ genre.name }}</a></li>
-                {% else %}
-                    <li><a href="{% url "collection-by-genre" genre.pk %}">{{ genre.name }}</a></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-
+    <div class="row">
+        <form action='' method='get' role="form" class="form-inline">
+            <div class="form-group">
+                {{ form.genre.errors }}
+                <label class="sr-only" for="id_genre">Genre</label>
+                {{ form.genre }} 
+            </div>
+            <div class="form-group">
+                {{ form.platform.errors }}
+                <label class="sr-only" for="id_platform">Platform</label>
+                {{ form.platform }} 
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Filter</button>
+        </form>
     </div>
-    <div class="col-md-5">
-        <h3>Platforms</h3>
-        <ul>
-            {% for platform in platforms %}
-                {% if wish %}
-                    <li><a href="{% url "wish-by-platform" platform.pk %}">{{ platform.name }}</a></li>
-                {% else %}
-                    <li><a href="{% url "collection-by-platform" platform.pk %}">{{ platform.name }}</a></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-
+    <p></p>
+    <div class="row">
+        {% for game in games %}
+            <div class="col-md-4">
+                <p><a href="{% url "game-platform-detail" game.game.remote_id game.game.platform.remote_id %}"><img class="img-rounded" src="{{ game.game.icon_image_url}}" /></a></p>
+                <h4>{{ game.game.name }}</h4>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}</div><div class="row">{% endif %}
+        {% endfor %}
     </div>
 {% endblock %}

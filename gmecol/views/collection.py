@@ -33,55 +33,6 @@ def add_game_to_collection(request, game_id, wish=False):
 
 
 @login_required
-def view_collection(request, wish=False):
-    ''' Views a users collection '''
-    genres = models.Genre.objects.filter(
-        pk__in=request.user.userprofile.usergame_set.filter(wish=wish).values_list(
-            'game__genres__pk', flat=True)
-    ).distinct()
-    platforms = models.Platform.objects.filter(
-        pk__in=request.user.userprofile.usergame_set.filter(wish=wish).values_list(
-            'game__platform__pk', flat=True)
-    ).distinct()
-
-    return render(request, 'gmecol/user_collection.html', {
-        'platforms': platforms,
-        'genres': genres,
-        'wish': wish,
-    })
-
-
-@login_required
-def view_collection_by_genre(request, genre_id, wish=False):
-    ''' View games in a collection by a genre '''
-    genre = get_object_or_404(models.Genre, pk=genre_id)
-    games = request.user.userprofile.usergame_set.filter(
-        game__genres=genre,
-        wish=wish
-    )
-
-    return render(request, 'gmecol/user_collection_by_genre.html', {
-        'genre': genre,
-        'games': games
-    })
-
-
-@login_required
-def view_collection_by_platform(request, platform_id, wish=False):
-    ''' View games in a collection by platform '''
-    platform = get_object_or_404(models.Platform, pk=platform_id)
-    games = request.user.userprofile.usergame_set.filter(
-        game__platform=platform,
-        wish=wish
-    )
-
-    return render(request, 'gmecol/user_collection_by_platform.html', {
-        'platform': platform,
-        'games': games
-    })
-
-
-@login_required
 def rate_game(request, game_id):
     ''' View taking a game PK and score, and setting the player's rating. If
     0 is received, we null the score

@@ -74,6 +74,11 @@ def giant_bomb_game_detail(remote_id):
             remote_id__in=[x.id for x in game.platforms]
         )
         for platform in game_platforms:
+            release_date = None
+            if game.original_release_date:
+                release_date = datetime.strptime(
+                    game.original_release_date, '%Y-%m-%d %H:%M:%S'
+                )
             new_game, created = models.Game.objects.get_or_create(
                 deck=game.deck,
                 platform=platform,
@@ -87,9 +92,7 @@ def giant_bomb_game_detail(remote_id):
                 thumb_image_url=game.image.thumb,
                 tiny_image_url=game.image.tiny,
                 name=game.name,
-                release_date=datetime.strptime(
-                    game.original_release_date, '%Y-%m-%d %H:%M:%S'
-                ).date()
+                release_date=release_date,
             )
             [new_game.genres.add(x) for x in genres]
 
