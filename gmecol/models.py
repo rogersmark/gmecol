@@ -77,6 +77,9 @@ class UserGame(BaseModel):
     def __unicode__(self):
         return u'%s - %s' % (self.game.platform, self.game.name)
 
+    class Meta:
+        ordering = ('game__name',)
+
 
 class UserProfile(BaseModel):
     ''' Profile for tracking a user's information and catalog '''
