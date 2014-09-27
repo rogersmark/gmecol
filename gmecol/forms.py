@@ -75,3 +75,8 @@ class CollectionSortForm(forms.Form):
         choices=CHOICES, required=False,
         widget=forms.Select(attrs={'class': 'form-control'}),
     )
+
+
+class EmailForm(forms.Form):
+
+    email = forms.EmailField()

@@ -33,6 +33,25 @@ urlpatterns += patterns('gmecol.views.collection',
 # profile
 urlpatterns += patterns('gmecol.views.profile',
     url('^profile/(?P<user_id>\d+)/$', 'profile', name='profile'),
+    url(r'^profile/update-email/$', 'update_email', name='update-email'),
+)
+
+urlpatterns += patterns('',
+    url(
+        '^profile/password-change/$',
+        'django.contrib.auth.views.password_change',
+        {
+            'template_name': 'accounts/password_change.html',
+            'post_change_redirect': 'password-change-done'
+        },
+        name='password-change'
+    ),
+    url(
+        '^profile/password-changed/$',
+        'django.contrib.auth.views.password_change_done',
+        {'template_name': 'accounts/password_change_done.html'},
+        name='password-change-done'
+    ),
 )
 
 # friends

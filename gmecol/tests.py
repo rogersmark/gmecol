@@ -1,3 +1,4 @@
+import json
 from mock import Mock, patch
 
 from django.test import TestCase
@@ -311,6 +312,31 @@ class TestGmeColProfileViews(BaseCase):
         response = self.client.get(reverse('profile', args=[user.pk]))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['user'], user)
+
+    def test_update_email_address_failure(self):
+        ''' Test updating email address with bad data '''
+        response = self.client.post(reverse('update-email'), {
+            'email': '1234'
+        })
+        data = json.loads(response.content)
+        self.assertEqual(data['status'], 'failed')
+        self.assertEqual(
+            data['errors']['email'][0],
+            'Enter a valid email address.'
+        )
+
+    def test_update_email_address(self):
+        ''' Test updating to a valid email address '''
+        response = self.client.post(reverse('update-email'), {
+            'email': 'user@example.com'
+        })
+        data = json.loads(response.content)
+        self.assertEqual(data['status'], 'success')
+        user = User.objects.get(username='test_user')
+        self.assertEqual(
+            user.email,
+            'user@example.com'
+        )
 
 
 class TestGmeColMessagingViews(BaseCase):
