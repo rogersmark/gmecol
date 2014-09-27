@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, url
+from django.views.generic import TemplateView
+
 from .views.games import GameListView
 
 # general
@@ -69,4 +71,13 @@ urlpatterns += patterns('gmecol.views.messages',
     url('^messages/send/$', 'send_message', name='send-message'),
     url('^messages/(?P<message_id>\d+)/$',
         'message_detail', name='message-detail'),
+)
+
+# other
+urlpatterns += patterns('',
+    url(
+        r'^about/$',
+        TemplateView.as_view(template_name="gmecol/about.html"),
+        name='about'
+    )
 )
